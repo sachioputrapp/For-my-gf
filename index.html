@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>For Angel Eihan Ayal 🤍</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,500;0,600;1,400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        blush: {
+                            50: '#fff5f7',
+                            100: '#ffe3eb',
+                            200: '#ffccd8',
+                            300: '#ffa3b8',
+                            400: '#ff6b8c',
+                            500: '#ff3366',
+                        },
+                        rose: {
+                            50: '#fff1f2',
+                            100: '#ffe4e6',
+                            200: '#fecdd3',
+                            800: '#9f1239',
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+                        serif: ['"Playfair Display"', 'serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background: linear-gradient(135deg, #fff5f7 0%, #ffffff 50%, #ffe3eb 100%);
+            color: #4a4a4a;
+            overflow-x: hidden;
+        }
+        .glass-panel {
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 182, 193, 0.3);
+        }
+        .romantic-shadow {
+            box-shadow: 0 10px 30px -5px rgba(255, 107, 140, 0.12);
+        }
+        @keyframes float {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(-8px) rotate(2deg); }
+        }
+        .floating-heart {
+            animation: float 4s ease-in-out infinite;
+        }
+        @keyframes spin-slow {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+        .animate-spin-slow {
+            animation: spin-slow 6s linear infinite;
+        }
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #fff5f7;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #ffb6c1;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #ff6b8c;
+        }
+    </style>
+</head>
+
+<body class="min-h-screen flex flex-col justify-between selection:bg-pink-200 selection:text-pink-900">
+
+    <!-- Elemen Audio (Backsound) -->
+    <!-- Ganti "audio/backsound.mp3" dengan lokasi/nama file lagu Anda -->
+    <audio id="bg-music" loop>
+        <source src="247 - Romaria  Lirik.mp3" type="audio/mpeg">
+        Browser Anda tidak mendukung pemutar audio.
+    </audio>
+
+    <header class="w-full py-6 px-4 md:px-12 flex justify-between items-center max-w-5xl mx-auto">
+        <div class="flex items-center space-x-2">
+            <span class="w-9 h-9 rounded-full bg-pink-100 flex items-center justify-center text-pink-500 shadow-sm">
+                <i class="fa-solid fa-heart text-sm"></i>
+            </span>
+            <span class="font-serif font-semibold text-lg md:text-xl text-stone-800 tracking-wide">Angel Eihan Ayal</span>
+        </div>
+        
+        <div class="flex items-center space-x-2 md:space-x-4">
+            <!-- Tombol Musik -->
+            <button onclick="toggleMusic()" id="music-btn" class="text-xs md:text-sm bg-white/90 hover:bg-pink-50 px-3.5 py-1.5 rounded-full border border-pink-200 text-stone-600 shadow-sm flex items-center gap-2 transition-all">
+                <i id="music-icon" class="fa-solid fa-music text-pink-400"></i> 
+                <span id="music-text">Putar Musik</span>
+            </button>
+
+            <span id="device-badge" class="text-xs md:text-sm bg-white/85 px-3.5 py-1.5 rounded-full border border-pink-200 text-stone-600 shadow-sm hidden md:flex items-center gap-1.5">
+                <i class="fa-solid fa-mobile-screen text-pink-400" id="device-icon"></i> <span id="device-text">Auto View</span>
+            </span>
+        </div>
+    </header>
+
+    <main id="main-container" class="w-full mx-auto px-4 md:px-8 py-6 flex-grow flex flex-col items-center transition-all duration-300">
+        
+        <div class="w-full glass-panel rounded-3xl p-6 md:p-10 romantic-shadow text-center relative overflow-hidden mb-8">
+            <div class="absolute -top-10 -right-10 w-32 h-32 bg-pink-200 rounded-full blur-2xl opacity-50 pointer-events-none"></div>
+            <div class="absolute -bottom-10 -left-10 w-32 h-32 bg-rose-100 rounded-full blur-2xl opacity-50 pointer-events-none"></div>
+
+            <span class="inline-block px-4 py-1.5 bg-pink-100/80 text-pink-600 text-xs md:text-sm font-medium rounded-full mb-4 tracking-wider uppercase">
+                Bidadari kiriman tuhan untuk aku ✨
+            </span>
+            
+            <h1 class="font-serif text-3xl md:text-5xl font-semibold text-stone-800 mb-4 leading-tight">
+                To My Dearest, <br><span class="text-pink-500 italic">Angel Eihan Ayal</span>
+            </h1>
+            
+            <p class="text-stone-600 text-sm md:text-base max-w-xl mx-auto font-light leading-relaxed">
+                Setiap detik bersama kamu adalah anugerah yang indah. Terima kasih telah menjadi tempat hatiku berlabuh dengan nyaman.
+            </p>
+        </div>
+
+        <div class="w-full glass-panel rounded-3xl p-6 md:p-12 romantic-shadow relative mb-8">
+            <div class="absolute top-6 right-6 text-pink-200 text-3xl opacity-60">
+                <i class="fa-solid fa-quote-right"></i>
+            </div>
+            
+            <h2 class="font-serif text-xl md:text-2xl font-medium text-stone-800 mb-6 flex items-center gap-2">
+                <i class="fa-solid fa-envelope-open-text text-pink-500 text-lg"></i> A Little Note From My Heart
+            </h2>
+
+            <div class="prose prose-stone max-w-none text-stone-700 text-sm md:text-base leading-relaxed space-y-4 font-light">
+                <p class="first-letter:text-4xl first-letter:font-serif first-letter:font-bold first-letter:text-pink-500 first-letter:mr-3 first-letter:float-left">
+                    "Haii Angel Eihan Ayal dari sekian banyak wanita entah kenapa aku hanya tertuju ke kamu, rasanya ada magnet dari dalam dirimu yang bisa memikat hati aku setelah aku merasakan sepi dan mati rasa, awal mula dari aku mulai mendekati kamu disaat adik sedang membantu menjual dagangan geva sampai aku bisa berada di titik ini dimana aku bisa memilikimu seutuhnya."
+                </p>
+                <p>
+                    Tidak kusangka aku bisa ada di titik ini dimana kita bisa se-intens ini bahkan sudah di tahap komitmen, aku sangat amat bersyukur bisa dekat dengan adik, banyak hal yang membuat aku semakin nyaman dan sayang sama kamu angel, dari hal kecil seperti selera musik kita yang tidak jauh berbeda sampai cara kamu bisa menerima aku yang belum sempurna ini.
+                </p>
+                <p>"Maaf sayang aku melakukan kesalahan itu, aku tidak menyalahkan diri tetapi aku sadar disitu ada keteledoran aku yang membuat adik kecewa sama aku."
+                </p>
+                <p>
+                    Aku sayang kamu 3 kata yang simple tetapi sangat berarti dan bukan kata-kata yang sepele, thankss byyy sudah menerima akuu dan menjadi pasangan yang baikk untuk akuuu, siapa sangka disaat aku kebingungan dan tidak memiliki keinginan untuk dekat lagi dengan perempuan, muncul lah bidadari tuhan yang bernama angel ini.
+                </p>
+                <p>
+                    Jujur aku masih ngga nyangka aku bisa dapetin kamu sayang, aku mau hubungan ini menjadi hal yang positif untuk kita berdua dan saling support kedepannya sayaanggg...
+                </p>
+            </div>
+
+            <div class="mt-8 pt-6 border-t border-pink-100 text-center">
+                <span class="inline-block bg-gradient-to-r from-pink-500 to-rose-500 text-white font-semibold text-sm md:text-lg px-6 py-3 rounded-2xl shadow-md floating-heart">
+                    AKU SAYAANG KAMUUU ANGEL EIHAN AYAL!!!!! 🤍
+                </span>
+            </div>
+        </div>
+
+    </main>
+
+    <footer class="w-full py-6 text-center text-xs text-stone-400">
+        <p>Made with all my love for ISTRIQ (Angel Eihan Ayal) 🤍</p>
+    </footer>
+
+    <script>
+        // Skrip untuk kontrol pemutaran musik
+        const music = document.getElementById('bg-music');
+        const musicBtn = document.getElementById('music-btn');
+        const musicIcon = document.getElementById('music-icon');
+        const musicText = document.getElementById('music-text');
+        let isPlaying = false;
+
+        function toggleMusic() {
+            if (isPlaying) {
+                music.pause();
+                musicIcon.className = 'fa-solid fa-music text-pink-400';
+                musicText.innerText = 'Putar Musik Fav Adik';
+                musicBtn.classList.remove('bg-pink-100', 'border-pink-300');
+            } else {
+                music.play().then(() => {
+                    musicIcon.className = 'fa-solid fa-compact-disc text-pink-500 animate-spin-slow';
+                    musicText.innerText = 'Matikan Musik';
+                    musicBtn.classList.add('bg-pink-100', 'border-pink-300');
+                    isPlaying = true;
+                }).catch(error => {
+                    alert('Gagal memutar musik. Pastikan file lagu di folder "audio" dengan nama "backsound.mp3" sudah benar!');
+                    console.error(error);
+                });
+            }
+            isPlaying = !isPlaying;
+        }
+
+        // Penyesuaian Layout Perangkat
+        function adjustLayoutToDevice() {
+            const width = window.innerWidth;
+            const mainContainer = document.getElementById('main-container');
+            const deviceIcon = document.getElementById('device-icon');
+            const deviceText = document.getElementById('device-text');
+
+            if (width < 640) {
+                mainContainer.style.maxWidth = '100%';
+                if(deviceIcon && deviceText) {
+                    deviceIcon.className = 'fa-solid fa-mobile-screen text-pink-400';
+                    deviceText.innerText = 'Mobile Mode';
+                }
+            } else if (width >= 640 && width < 1024) {
+                mainContainer.style.maxWidth = '640px';
+                if(deviceIcon && deviceText) {
+                    deviceIcon.className = 'fa-solid fa-tablet-screen-button text-pink-400';
+                    deviceText.innerText = 'Tablet Mode';
+                }
+            } else {
+                mainContainer.style.maxWidth = '850px';
+                if(deviceIcon && deviceText) {
+                    deviceIcon.className = 'fa-solid fa-desktop text-pink-400';
+                    deviceText.innerText = 'Desktop Mode';
+                }
+            }
+        }
+        window.addEventListener('resize', adjustLayoutToDevice);
+        window.addEventListener('DOMContentLoaded', adjustLayoutToDevice);
+    </script>
+</body>
+</html>
