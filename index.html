@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>For Angel Eihan Ayal 🤍</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,500;0,600;1,400&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;600;700&family=Sacramento&family=Comfortaa:wght@500;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <script>
         tailwind.config = {
@@ -28,8 +28,9 @@
                         }
                     },
                     fontFamily: {
-                        sans: ['"Plus Jakarta Sans"', 'sans-serif'],
-                        serif: ['"Playfair Display"', 'serif'],
+                        sans: ['"Quicksand"', 'sans-serif'],
+                        serif: ['"Comfortaa"', 'cursive'],
+                        romantic: ['"Sacramento"', 'cursive'],
                     }
                 }
             }
@@ -37,19 +38,62 @@
     </script>
     <style>
         body {
-            font-family: 'Plus Jakarta Sans', sans-serif;
-            background: linear-gradient(135deg, #fff5f7 0%, #ffffff 50%, #ffe3eb 100%);
+            font-family: 'Quicksand', sans-serif;
+            background: linear-gradient(135deg, #fff0f3 0%, #fff5f7 50%, #ffe3eb 100%);
             color: #4a4a4a;
             overflow-x: hidden;
+            position: relative;
+            min-height: 100vh;
         }
+
+        /* Falling Hearts Background Animation */
+        .falling-hearts-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            overflow: hidden;
+            z-index: 0;
+        }
+
+        .falling-heart-item {
+            position: absolute;
+            top: -10vh;
+            color: rgba(255, 77, 109, 0.45);
+            animation: fall linear infinite;
+            user-select: none;
+        }
+
+        @keyframes fall {
+            0% {
+                transform: translateY(-10vh) translateX(0) rotate(0deg);
+                opacity: 0.8;
+            }
+            50% {
+                transform: translateY(50vh) translateX(25px) rotate(180deg);
+                opacity: 0.6;
+            }
+            100% {
+                transform: translateY(110vh) translateX(-25px) rotate(360deg);
+                opacity: 0;
+            }
+        }
+
+        /* Glass panel and content styling */
         .glass-panel {
-            background: rgba(255, 255, 255, 0.85);
+            background: rgba(255, 255, 255, 0.9);
             backdrop-filter: blur(12px);
-            border: 1px solid rgba(255, 182, 193, 0.3);
+            border: 1px solid rgba(255, 182, 193, 0.4);
+            position: relative;
+            z-index: 10;
         }
+
         .romantic-shadow {
-            box-shadow: 0 10px 30px -5px rgba(255, 107, 140, 0.12);
+            box-shadow: 0 15px 35px -5px rgba(255, 107, 140, 0.15);
         }
+
         @keyframes float {
             0%, 100% { transform: translateY(0px) rotate(0deg); }
             50% { transform: translateY(-8px) rotate(2deg); }
@@ -57,6 +101,7 @@
         .floating-heart {
             animation: float 4s ease-in-out infinite;
         }
+
         @keyframes spin-slow {
             from { transform: rotate(0deg); }
             to { transform: rotate(360deg); }
@@ -64,11 +109,13 @@
         .animate-spin-slow {
             animation: spin-slow 6s linear infinite;
         }
-        /* Popup overlay styling */
+
         #popup-overlay {
-            background: rgba(255, 227, 235, 0.6);
-            backdrop-filter: blur(8px);
+            background: rgba(255, 227, 235, 0.7);
+            backdrop-filter: blur(10px);
+            z-index: 50;
         }
+
         ::-webkit-scrollbar {
             width: 8px;
         }
@@ -87,69 +134,77 @@
 
 <body class="min-h-screen flex flex-col justify-between selection:bg-pink-200 selection:text-pink-900">
 
+    <div class="falling-hearts-container" id="falling-hearts">
+        <!-- Generated dynamically via JS for smooth performance -->
+    </div>
+
     <!-- Elemen Audio (Backsound) -->
     <audio id="bg-music" loop>
         <source src="247 - Romaria  Lirik.mp3" type="audio/mpeg">
+        Browser Anda tidak mendukung pemutar audio.
     </audio>
 
-    <!-- POP-UP MODAL (Pilihan Ya / Tidak dengan tema putih & pink) -->
-    <div id="popup-overlay" class="fixed inset-0 z-50 flex items-center justify-center p-4 transition-all duration-300">
+    <!-- POP-UP MODAL (Pusat layar dengan tema romantis) -->
+    <div id="popup-overlay" class="fixed inset-0 flex items-center justify-center p-4 transition-all duration-300">
         <div class="glass-panel w-full max-w-md rounded-3xl p-8 romantic-shadow text-center relative border border-pink-200 transform transition-all scale-100">
             <div class="w-16 h-16 bg-pink-100 text-pink-500 rounded-full flex items-center justify-center mx-auto mb-4 shadow-sm text-2xl">
                 <i class="fa-solid fa-heart floating-heart"></i>
             </div>
             
-            <h3 class="font-serif text-2xl font-semibold text-stone-800 mb-2">Hai Angel Eihan Ayal 🤍</h3>
-            <p id="popup-text" class="text-stone-600 text-sm md:text-base mb-6 font-light">
+            <h3 class="font-serif text-2xl font-bold text-stone-800 mb-2">Hai Angel Eihan Ayal 🤍</h3>
+            <p id="popup-text" class="text-stone-600 text-sm md:text-base mb-6 font-medium">
                 Kamu sayang aku gaa?
             </p>
 
             <div id="popup-buttons" class="flex items-center justify-center gap-4">
-                <button onclick="handleYes()" class="flex-1 bg-gradient-to-r from-pink-400 to-rose-400 hover:from-pink-500 hover:to-rose-500 text-white font-medium py-3 px-6 rounded-2xl shadow-md transition-all transform hover:-translate-y-0.5">
+                <button onclick="handleYes()" class="flex-1 bg-gradient-to-r from-pink-400 to-rose-400 hover:from-pink-500 hover:to-rose-500 text-white font-bold py-3 px-6 rounded-2xl shadow-md transition-all transform hover:-translate-y-0.5">
                     SAYANG BANGET!!!!! 
                 </button>
-                <button id="btn-no" onmouseover="moveNoButton()" onclick="handleNo()" class="flex-1 bg-white hover:bg-pink-50 text-pink-500 border border-pink-200 font-medium py-3 px-6 rounded-2xl shadow-sm transition-all">
+                <button id="btn-no" onmouseover="moveNoButton()" onclick="handleNo()" class="flex-1 bg-white hover:bg-pink-50 text-pink-500 border border-pink-200 font-bold py-3 px-6 rounded-2xl shadow-sm transition-all">
                   ga 
                 </button>
             </div>
         </div>
     </div>
 
-    <header class="w-full py-6 px-4 md:px-12 flex justify-between items-center max-w-5xl mx-auto">
+    <header class="w-full py-6 px-4 md:px-12 flex justify-between items-center max-w-5xl mx-auto relative z-10">
         <div class="flex items-center space-x-2">
             <span class="w-9 h-9 rounded-full bg-pink-100 flex items-center justify-center text-pink-500 shadow-sm">
                 <i class="fa-solid fa-heart text-sm"></i>
             </span>
-            <span class="font-serif font-semibold text-lg md:text-xl text-stone-800 tracking-wide">Angel Eihan Ayal</span>
+            <span class="font-serif font-bold text-lg md:text-xl text-stone-800 tracking-wide">Angel Eihan Ayal</span>
         </div>
         
         <div class="flex items-center space-x-2 md:space-x-4">
             <!-- Tombol Musik -->
-            <button onclick="toggleMusic()" id="music-btn" class="text-xs md:text-sm bg-white/90 hover:bg-pink-50 px-3.5 py-1.5 rounded-full border border-pink-200 text-stone-600 shadow-sm flex items-center gap-2 transition-all">
+            <button onclick="toggleMusic()" id="music-btn" class="text-xs md:text-sm bg-white/90 hover:bg-pink-50 px-3.5 py-1.5 rounded-full border border-pink-200 text-stone-600 font-semibold shadow-sm flex items-center gap-2 transition-all">
                 <i id="music-icon" class="fa-solid fa-music text-pink-400"></i> 
                 <span id="music-text">Putar Musik Fav Adik</span>
             </button>
 
-            <span id="device-badge" class="text-xs md:text-sm bg-white/85 px-3.5 py-1.5 rounded-full border border-pink-200 text-stone-600 shadow-sm hidden md:flex items-center gap-1.5">
+            <span id="device-badge" class="text-xs md:text-sm bg-white/85 px-3.5 py-1.5 rounded-full border border-pink-200 text-stone-600 font-semibold shadow-sm hidden md:flex items-center gap-1.5">
                 <i class="fa-solid fa-mobile-screen text-pink-400" id="device-icon"></i> <span id="device-text">Auto View</span>
             </span>
         </div>
     </header>
 
-    <main id="main-container" class="w-full mx-auto px-4 md:px-8 py-6 flex-grow flex flex-col items-center transition-all duration-300">
+    <main id="main-container" class="w-full mx-auto px-4 md:px-8 py-6 flex-grow flex flex-col items-center transition-all duration-300 relative z-10">
         
         <div class="w-full glass-panel rounded-3xl p-6 md:p-10 romantic-shadow text-center relative overflow-hidden mb-8">
             <div class="absolute -top-10 -right-10 w-32 h-32 bg-pink-200 rounded-full blur-2xl opacity-50 pointer-events-none"></div>
             <div class="absolute -bottom-10 -left-10 w-32 h-32 bg-rose-100 rounded-full blur-2xl opacity-50 pointer-events-none"></div>
 
-            <span class="inline-block px-4 py-1.5 bg-pink-100/80 text-pink-600 text-xs md:text-sm font-medium rounded-full mb-4 tracking-wider uppercase">
+            <span class="inline-block px-4 py-1.5 bg-pink-100/90 text-pink-600 text-xs md:text-sm font-bold rounded-full mb-4 tracking-wider uppercase shadow-sm">
                 Bidadari kiriman tuhan untuk aku ✨
             </span>
             
-            <h1 class="font-serif text-3xl md:text-5xl font-semibold text-stone-800 mb-4 leading-tight">
-                To My Dearest, <br><span class="text-pink-500 italic">Angel Eihan Ayal</span>
+            <h1 class="font-serif text-3xl md:text-5xl font-bold text-stone-800 mb-4 leading-tight">
+                To My Dearest, <br><span class="font-romantic text-5xl md:text-7xl text-pink-500 font-normal">Angel Eihan Ayal</span>
             </h1>
             
+            <p class="text-stone-600 text-sm md:text-base max-w-xl mx-auto font-medium leading-relaxed">
+                Setiap detik bersama kamu adalah anugerah yang indah. Terima kasih telah menjadi tempat hatiku berlabuh dengan nyaman. 🤍
+            </p>
         </div>
 
         <div class="w-full glass-panel rounded-3xl p-6 md:p-12 romantic-shadow relative mb-8">
@@ -157,18 +212,19 @@
                 <i class="fa-solid fa-quote-right"></i>
             </div>
             
-            <h2 class="font-serif text-xl md:text-2xl font-medium text-stone-800 mb-6 flex items-center gap-2">
+            <h2 class="font-serif text-xl md:text-2xl font-bold text-stone-800 mb-6 flex items-center gap-2">
                 <i class="fa-solid fa-envelope-open-text text-pink-500 text-lg"></i> A Little Note From My Heart
             </h2>
 
-            <div class="prose prose-stone max-w-none text-stone-700 text-sm md:text-base leading-relaxed space-y-4 font-light">
+            <div class="prose prose-stone max-w-none text-stone-700 text-sm md:text-base leading-relaxed space-y-4 font-medium">
                 <p class="first-letter:text-4xl first-letter:font-serif first-letter:font-bold first-letter:text-pink-500 first-letter:mr-3 first-letter:float-left">
                     "Haii Angel Eihan Ayal dari sekian banyak wanita entah kenapa aku hanya tertuju ke kamu, rasanya ada magnet dari dalam dirimu yang bisa memikat hati aku setelah aku merasakan sepi dan mati rasa, awal mula dari aku mulai mendekati kamu disaat adik sedang membantu menjual dagangan geva sampai aku bisa berada di titik ini dimana aku bisa memilikimu seutuhnya."
                 </p>
                 <p>
                     Tidak kusangka aku bisa ada di titik ini dimana kita bisa se-intens ini bahkan sudah di tahap komitmen, aku sangat amat bersyukur bisa dekat dengan adik, banyak hal yang membuat aku semakin nyaman dan sayang sama kamu angel, dari hal kecil seperti selera musik kita yang tidak jauh berbeda sampai cara kamu bisa menerima aku yang belum sempurna ini.
                 </p>
-                <p>"Maaf sayang aku melakukan kesalahan itu, aku tidak menyalahkan diri tetapi aku sadar disitu ada keteledoran aku yang membuat adik kecewa sama aku."
+                <p>
+                    "Maaf sayang aku melakukan kesalahan itu, aku tidak menyalahkan diri tetapi aku sadar disitu ada keteledoran aku yang membuat adik kecewa sama aku."
                 </p>
                 <p>
                     Aku sayang kamu 3 kata yang simple tetapi sangat berarti dan bukan kata-kata yang sepele, thankss byyy sudah menerima akuu dan menjadi pasangan yang baikk untuk akuuu, siapa sangka disaat aku kebingungan dan tidak memiliki keinginan untuk dekat lagi dengan perempuan, muncul lah bidadari tuhan yang bernama angel ini.
@@ -179,7 +235,7 @@
             </div>
 
             <div class="mt-8 pt-6 border-t border-pink-100 text-center">
-                <span class="inline-block bg-gradient-to-r from-pink-500 to-rose-500 text-white font-semibold text-sm md:text-lg px-6 py-3 rounded-2xl shadow-md floating-heart">
+                <span class="inline-block bg-gradient-to-r from-pink-500 to-rose-500 text-white font-bold text-sm md:text-lg px-6 py-3 rounded-2xl shadow-md floating-heart">
                     AKU SAYAANG KAMUUU ANGEL EIHAN AYAL!!!!! 🤍
                 </span>
             </div>
@@ -187,11 +243,36 @@
 
     </main>
 
-    <footer class="w-full py-6 text-center text-xs text-stone-400">
+    <footer class="w-full py-6 text-center text-xs text-stone-500 font-semibold relative z-10">
         <p>Made with all my love for ISTRIQ (Angel Eihan Ayal) 🤍</p>
     </footer>
 
     <script>
+        // Generate falling hearts dynamically with increased quantity
+        function createFallingHearts() {
+            const container = document.getElementById('falling-hearts');
+            const heartCount = 50; // Diperbanyak menjadi 50 love agar lebih meriah
+
+            for (let i = 0; i < heartCount; i++) {
+                const heart = document.createElement('div');
+                heart.className = 'falling-heart-item';
+                heart.innerHTML = '<i class="fa-solid fa-heart"></i>';
+                
+                // Random positioning and timing
+                const leftPos = Math.random() * 100;
+                const size = Math.random() * 18 + 10; // 10px to 28px
+                const duration = Math.random() * 5 + 3; // 3s to 8s (lebih bervariasi)
+                const delay = Math.random() * 6;
+
+                heart.style.left = `${leftPos}%`;
+                heart.style.fontSize = `${size}px`;
+                heart.style.animationDuration = `${duration}s`;
+                heart.style.animationDelay = `${delay}s`;
+
+                container.appendChild(heart);
+            }
+        }
+
         // Skrip untuk kontrol pemutaran musik & popup
         const music = document.getElementById('bg-music');
         const musicBtn = document.getElementById('music-btn');
@@ -226,7 +307,6 @@
                 overlay.style.display = 'none';
             }, 300);
 
-            // Coba otomatis nyalakan musik saat "Ya" diklik agar langsung menyatu dengan interaksi pengguna
             if (!isPlaying) {
                 music.play().then(() => {
                     musicIcon.className = 'fa-solid fa-compact-disc text-pink-500 animate-spin-slow';
@@ -239,7 +319,7 @@
             }
         }
 
-        // Efek interaktif tombol "Tidak" (akan bergeser jika didekati atau diklik)
+        // Efek interaktif tombol "Tidak"
         let noClickCount = 0;
         const messagesNo = [
             "adik beneran dah ga sayang aku ya? ",
@@ -293,8 +373,12 @@
                 }
             }
         }
+
         window.addEventListener('resize', adjustLayoutToDevice);
-        window.addEventListener('DOMContentLoaded', adjustLayoutToDevice);
+        window.addEventListener('DOMContentLoaded', () => {
+            adjustLayoutToDevice();
+            createFallingHearts();
+        });
     </script>
 </body>
 </html>
