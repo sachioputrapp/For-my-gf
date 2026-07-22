@@ -64,6 +64,11 @@
         .animate-spin-slow {
             animation: spin-slow 6s linear infinite;
         }
+        /* Popup overlay styling */
+        #popup-overlay {
+            background: rgba(255, 227, 235, 0.6);
+            backdrop-filter: blur(8px);
+        }
         ::-webkit-scrollbar {
             width: 8px;
         }
@@ -83,10 +88,32 @@
 <body class="min-h-screen flex flex-col justify-between selection:bg-pink-200 selection:text-pink-900">
 
     <!-- Elemen Audio (Backsound) -->
-    <!-- Ganti "audio/backsound.mp3" dengan lokasi/nama file lagu Anda -->
     <audio id="bg-music" loop>
         <source src="247 - Romaria  Lirik.mp3" type="audio/mpeg">
     </audio>
+
+    <!-- POP-UP MODAL (Pilihan Ya / Tidak dengan tema putih & pink) -->
+    <div id="popup-overlay" class="fixed inset-0 z-50 flex items-center justify-center p-4 transition-all duration-300">
+        <div class="glass-panel w-full max-w-md rounded-3xl p-8 romantic-shadow text-center relative border border-pink-200 transform transition-all scale-100">
+            <div class="w-16 h-16 bg-pink-100 text-pink-500 rounded-full flex items-center justify-center mx-auto mb-4 shadow-sm text-2xl">
+                <i class="fa-solid fa-heart floating-heart"></i>
+            </div>
+            
+            <h3 class="font-serif text-2xl font-semibold text-stone-800 mb-2">Hai Angel Eihan Ayal 🤍</h3>
+            <p id="popup-text" class="text-stone-600 text-sm md:text-base mb-6 font-light">
+                Kamu sayang aku gaa?
+            </p>
+
+            <div id="popup-buttons" class="flex items-center justify-center gap-4">
+                <button onclick="handleYes()" class="flex-1 bg-gradient-to-r from-pink-400 to-rose-400 hover:from-pink-500 hover:to-rose-500 text-white font-medium py-3 px-6 rounded-2xl shadow-md transition-all transform hover:-translate-y-0.5">
+                    SAYANG BANGET!!!!! 
+                </button>
+                <button id="btn-no" onmouseover="moveNoButton()" onclick="handleNo()" class="flex-1 bg-white hover:bg-pink-50 text-pink-500 border border-pink-200 font-medium py-3 px-6 rounded-2xl shadow-sm transition-all">
+                  ga 
+                </button>
+            </div>
+        </div>
+    </div>
 
     <header class="w-full py-6 px-4 md:px-12 flex justify-between items-center max-w-5xl mx-auto">
         <div class="flex items-center space-x-2">
@@ -123,9 +150,6 @@
                 To My Dearest, <br><span class="text-pink-500 italic">Angel Eihan Ayal</span>
             </h1>
             
-            <p class="text-stone-600 text-sm md:text-base max-w-xl mx-auto font-light leading-relaxed">
-                Setiap detik bersama kamu adalah anugerah yang indah. Terima kasih telah menjadi tempat hatiku berlabuh dengan nyaman.
-            </p>
         </div>
 
         <div class="w-full glass-panel rounded-3xl p-6 md:p-12 romantic-shadow relative mb-8">
@@ -168,7 +192,7 @@
     </footer>
 
     <script>
-        // Skrip untuk kontrol pemutaran musik
+        // Skrip untuk kontrol pemutaran musik & popup
         const music = document.getElementById('bg-music');
         const musicBtn = document.getElementById('music-btn');
         const musicIcon = document.getElementById('music-icon');
@@ -188,11 +212,58 @@
                     musicBtn.classList.add('bg-pink-100', 'border-pink-300');
                     isPlaying = true;
                 }).catch(error => {
-                    alert('Gagal memutar musik. Pastikan file lagu di folder "audio" dengan nama "backsound.mp3" sudah benar!');
-                    console.error(error);
+                    console.error("Gagal memutar musik:", error);
                 });
             }
             isPlaying = !isPlaying;
+        }
+
+        // Fungsi saat tombol "Ya" diklik di popup
+        function handleYes() {
+            const overlay = document.getElementById('popup-overlay');
+            overlay.style.opacity = '0';
+            setTimeout(() => {
+                overlay.style.display = 'none';
+            }, 300);
+
+            // Coba otomatis nyalakan musik saat "Ya" diklik agar langsung menyatu dengan interaksi pengguna
+            if (!isPlaying) {
+                music.play().then(() => {
+                    musicIcon.className = 'fa-solid fa-compact-disc text-pink-500 animate-spin-slow';
+                    musicText.innerText = 'Matikan Musik';
+                    musicBtn.classList.add('bg-pink-100', 'border-pink-300');
+                    isPlaying = true;
+                }).catch(err => {
+                    console.log("Autoplay dicegah browser, silakan klik tombol musik manual.");
+                });
+            }
+        }
+
+        // Efek interaktif tombol "Tidak" (akan bergeser jika didekati atau diklik)
+        let noClickCount = 0;
+        const messagesNo = [
+            "adik beneran dah ga sayang aku ya? ",
+            "KOK GASAYANG SIH BB",
+            "sedi bb suda tida sayang aku lagi",
+            "sebenarnya bb sayang aku atau tida",
+            "baiklah aku akan menggalau saja",
+            "aku sedih brutal"
+        ];
+
+        function moveNoButton() {
+            const btnNo = document.getElementById('btn-no');
+            const popupText = document.getElementById('popup-text');
+            
+            popupText.innerText = messagesNo[noClickCount % messagesNo.length];
+            noClickCount++;
+
+            const randomX = (Math.random() - 0.5) * 120;
+            const randomY = (Math.random() - 0.5) * 80;
+            btnNo.style.transform = `translate(${randomX}px, ${randomY}px)`;
+        }
+
+        function handleNo() {
+            moveNoButton();
         }
 
         // Penyesuaian Layout Perangkat
