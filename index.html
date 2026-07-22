@@ -114,6 +114,15 @@
             z-index: 50;
         }
 
+        /* Custom scrollbar for swipeable gallery */
+        .no-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .no-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+
         ::-webkit-scrollbar {
             width: 8px;
         }
@@ -183,6 +192,7 @@
 
     <main id="main-container" class="w-full mx-auto px-4 md:px-8 py-6 flex-grow flex flex-col items-center transition-all duration-300 relative z-10">
         
+        <!-- Hero Section -->
         <div class="w-full glass-panel rounded-3xl p-6 md:p-10 romantic-shadow text-center relative overflow-hidden mb-8">
             <div class="absolute -top-10 -right-10 w-32 h-32 bg-pink-200 rounded-full blur-2xl opacity-50 pointer-events-none"></div>
             <div class="absolute -bottom-10 -left-10 w-32 h-32 bg-rose-100 rounded-full blur-2xl opacity-50 pointer-events-none"></div>
@@ -198,6 +208,84 @@
             <p class="text-stone-600 text-sm md:text-base max-w-xl mx-auto font-medium leading-relaxed">
                 Memilikimu adalah anugerah terindah yang tuhan berikan untuk aku 🤍
             </p>
+        </div>
+
+        <!-- NEW: Swipeable Photo Collage Gallery Section -->
+        <div class="w-full glass-panel rounded-3xl p-6 md:p-10 romantic-shadow relative mb-8">
+            <div class="flex flex-col md:flex-row items-center justify-between mb-6 gap-4">
+                <div>
+                    <h2 class="font-serif text-lg md:text-2xl font-bold text-stone-800 flex items-center gap-2">
+                        <i class="fa-solid fa-camera-retro text-pink-500 text-lg"></i> Our Sweet Memories (<span id="photo-count">4</span>/56)
+                    </h2>
+                    <p class="text-xs text-stone-500 mt-1">Kamu bisa upload hingga 56 foto kenangan kita bersama 🤍</p>
+                </div>
+                <div class="flex items-center gap-3">
+                    <!-- Tombol Upload Foto Lokal (Maksimal 56 foto) -->
+                    <label id="upload-label" class="cursor-pointer bg-gradient-to-r from-pink-400 to-rose-400 hover:from-pink-500 hover:to-rose-500 text-white text-xs md:text-sm font-bold py-2 px-4 rounded-xl shadow-sm transition-all flex items-center gap-2">
+                        <i class="fa-solid fa-upload"></i> Upload Foto (Max 56)
+                        <input type="file" id="photo-upload-input" accept="image/*" multiple class="hidden" onchange="handlePhotoUpload(event)">
+                    </label>
+                    <div class="flex gap-2">
+                        <button onclick="scrollGallery(-1)" class="w-9 h-9 rounded-full bg-pink-100 hover:bg-pink-200 text-pink-600 flex items-center justify-center transition-all shadow-sm">
+                            <i class="fa-solid fa-chevron-left text-sm"></i>
+                        </button>
+                        <button onclick="scrollGallery(1)" class="w-9 h-9 rounded-full bg-pink-100 hover:bg-pink-200 text-pink-600 flex items-center justify-center transition-all shadow-sm">
+                            <i class="fa-solid fa-chevron-right text-sm"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Swipeable Container -->
+            <div id="photo-gallery" class="flex gap-4 overflow-x-auto no-scrollbar scroll-smooth snap-x snap-mandatory pb-4 pt-1 px-1">
+                
+                <!-- Photo Card 1 -->
+                <div class="min-w-[240px] md:min-w-[280px] snap-center bg-white p-3 rounded-2xl border border-pink-100 shadow-sm transition-all hover:shadow-md flex-shrink-0 relative group">
+                    <button onclick="removePhotoCard(this)" class="absolute top-5 right-5 z-20 bg-red-500 text-white w-7 h-7 rounded-full flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity shadow-md" title="Hapus foto">
+                        <i class="fa-solid fa-trash text-xs"></i>
+                    </button>
+                    <div class="w-full h-64 md:h-72 rounded-xl overflow-hidden bg-stone-900 flex items-center justify-center relative mb-3">
+                        <img src="https://placehold.co/400x500/ffe3eb/ff6b8c?text=Foto+Pertama" alt="Memory 1" class="w-full h-full object-contain rounded-xl transition-transform duration-500 hover:scale-105" onerror="this.src='https://placehold.co/400x500/ffe3eb/ff6b8c?text=Foto+1'">
+                    </div>
+                    <p class="text-center text-xs md:text-sm font-semibold text-stone-700">Momen Indah Kita ✨</p>
+                </div>
+
+                <!-- Photo Card 2 -->
+                <div class="min-w-[240px] md:min-w-[280px] snap-center bg-white p-3 rounded-2xl border border-pink-100 shadow-sm transition-all hover:shadow-md flex-shrink-0 relative group">
+                    <button onclick="removePhotoCard(this)" class="absolute top-5 right-5 z-20 bg-red-500 text-white w-7 h-7 rounded-full flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity shadow-md" title="Hapus foto">
+                        <i class="fa-solid fa-trash text-xs"></i>
+                    </button>
+                    <div class="w-full h-64 md:h-72 rounded-xl overflow-hidden bg-stone-900 flex items-center justify-center relative mb-3">
+                        <img src="https://placehold.co/400x500/ffe3eb/ff6b8c?text=Foto+Kedua" alt="Memory 2" class="w-full h-full object-contain rounded-xl transition-transform duration-500 hover:scale-105" onerror="this.src='https://placehold.co/400x500/ffe3eb/ff6b8c?text=Foto+2'">
+                    </div>
+                    <p class="text-center text-xs md:text-sm font-semibold text-stone-700">Senyuman Favoritku 🤍</p>
+                </div>
+
+                <!-- Photo Card 3 -->
+                <div class="min-w-[240px] md:min-w-[280px] snap-center bg-white p-3 rounded-2xl border border-pink-100 shadow-sm transition-all hover:shadow-md flex-shrink-0 relative group">
+                    <button onclick="removePhotoCard(this)" class="absolute top-5 right-5 z-20 bg-red-500 text-white w-7 h-7 rounded-full flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity shadow-md" title="Hapus foto">
+                        <i class="fa-solid fa-trash text-xs"></i>
+                    </button>
+                    <div class="w-full h-64 md:h-72 rounded-xl overflow-hidden bg-stone-900 flex items-center justify-center relative mb-3">
+                        <img src="https://placehold.co/400x500/ffe3eb/ff6b8c?text=Angel+Eihan+Ayal+3" alt="Memory 3" class="w-full h-full object-contain rounded-xl transition-transform duration-500 hover:scale-105" onerror="this.src='https://placehold.co/400x500/ffe3eb/ff6b8c?text=Foto+3'">
+                    </div>
+                    <p class="text-center text-xs md:text-sm font-semibold text-stone-700">Bidadari Tercantikku 💕</p>
+                </div>
+
+                <!-- Photo Card 4 -->
+                <div class="min-w-[240px] md:min-w-[280px] snap-center bg-white p-3 rounded-2xl border border-pink-100 shadow-sm transition-all hover:shadow-md flex-shrink-0 relative group">
+                    <button onclick="removePhotoCard(this)" class="absolute top-5 right-5 z-20 bg-red-500 text-white w-7 h-7 rounded-full flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity shadow-md" title="Hapus foto">
+                        <i class="fa-solid fa-trash text-xs"></i>
+                    </button>
+                    <div class="w-full h-64 md:h-72 rounded-xl overflow-hidden bg-stone-900 flex items-center justify-center relative mb-3">
+                        <img src="https://placehold.co/400x500/ffe3eb/ff6b8c?text=Angel+Eihan+Ayal+4" alt="Memory 4" class="w-full h-full object-contain rounded-xl transition-transform duration-500 hover:scale-105" onerror="this.src='https://placehold.co/400x500/ffe3eb/ff6b8c?text=Foto+4'">
+                    </div>
+                    <p class="text-center text-xs md:text-sm font-semibold text-stone-700">Selamanya Bersama 🌸</p>
+                </div>
+
+            </div>
+            
+            <p class="text-center text-xs text-stone-400 mt-2 italic">👈 Geser galeri atau klik tombol "Upload Foto" untuk menambahkan hingga 56 foto dari perangkatmu 👉</p>
         </div>
 
         <div class="w-full glass-panel rounded-3xl p-6 md:p-12 romantic-shadow relative mb-8">
@@ -261,6 +349,87 @@
                 heart.style.animationDelay = `${delay}s`;
 
                 container.appendChild(heart);
+            }
+        }
+
+        // Gallery scroll helper function for arrow buttons
+        function scrollGallery(direction) {
+            const gallery = document.getElementById('photo-gallery');
+            const scrollAmount = 280;
+            gallery.scrollBy({ left: direction * scrollAmount, behavior: 'smooth' });
+        }
+
+        // Update total photo counter badge
+        function updatePhotoCount() {
+            const gallery = document.getElementById('photo-gallery');
+            const count = gallery.querySelectorAll('.snap-center').length;
+            const countSpan = document.getElementById('photo-count');
+            const uploadLabel = document.getElementById('upload-label');
+            
+            if (countSpan) countSpan.innerText = count;
+
+            if (count >= 56) {
+                if (uploadLabel) {
+                    uploadLabel.style.opacity = '0.5';
+                    uploadLabel.style.pointerEvents = 'none';
+                }
+            } else {
+                if (uploadLabel) {
+                    uploadLabel.style.opacity = '1';
+                    uploadLabel.style.pointerEvents = 'auto';
+                }
+            }
+        }
+
+        // Handle local photo file uploads up to 56 photos
+        function handlePhotoUpload(event) {
+            const files = event.target.files;
+            if (!files || files.length === 0) return;
+
+            const gallery = document.getElementById('photo-gallery');
+            const currentCount = gallery.querySelectorAll('.snap-center').length;
+            const maxAllowed = 56;
+            const remainingSlots = maxAllowed - currentCount;
+
+            if (remainingSlots <= 0) {
+                alert("Jumlah foto sudah mencapai batas maksimal 56 foto!");
+                event.target.value = '';
+                return;
+            }
+
+            const filesToProcess = Array.from(files).slice(0, remainingSlots);
+
+            filesToProcess.forEach((file) => {
+                const reader = new FileReader();
+                reader.onload = function(e) {
+                    const card = document.createElement('div');
+                    card.className = "min-w-[240px] md:min-w-[280px] snap-center bg-white p-3 rounded-2xl border border-pink-100 shadow-sm transition-all hover:shadow-md flex-shrink-0 relative group animate-fade-in";
+                    
+                    card.innerHTML = `
+                        <button onclick="removePhotoCard(this)" class="absolute top-5 right-5 z-20 bg-red-500 text-white w-7 h-7 rounded-full flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity shadow-md" title="Hapus foto">
+                            <i class="fa-solid fa-trash text-xs"></i>
+                        </button>
+                        <div class="w-full h-64 md:h-72 rounded-xl overflow-hidden bg-stone-900 flex items-center justify-center relative mb-3">
+                            <img src="${e.target.result}" alt="Uploaded Memory" class="w-full h-full object-contain rounded-xl transition-transform duration-500 hover:scale-105">
+                        </div>
+                        <p class="text-center text-xs md:text-sm font-semibold text-stone-700">Kenangan Kita 💕</p>
+                    `;
+                    gallery.appendChild(card);
+                    gallery.scrollTo({ left: gallery.scrollWidth, behavior: 'smooth' });
+                    updatePhotoCount();
+                };
+                reader.readAsDataURL(file);
+            });
+            // Reset input
+            event.target.value = '';
+        }
+
+        // Remove photo card
+        function removePhotoCard(button) {
+            const card = button.closest('.snap-center');
+            if (card) {
+                card.remove();
+                updatePhotoCount();
             }
         }
 
@@ -365,6 +534,7 @@
         window.addEventListener('DOMContentLoaded', () => {
             adjustLayoutToDevice();
             createFallingHearts();
+            updatePhotoCount();
         });
     </script>
 </body>
