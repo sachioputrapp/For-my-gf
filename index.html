@@ -108,7 +108,6 @@
             animation: spin-slow 6s linear infinite;
         }
 
-        /* Foto proporsional agar tidak gepeng */
         .photo-frame {
             background-color: #fff0f3;
             display: flex;
@@ -120,7 +119,7 @@
         .photo-frame img {
             width: 100%;
             height: 100%;
-            object-fit: contain; /* Menjaga ukuran asli & rasio foto tanpa gepeng */
+            object-fit: contain;
             background-color: #fff5f7;
         }
 
@@ -130,7 +129,6 @@
             z-index: 50;
         }
 
-        /* Swipe container scrollbar hiding */
         .no-scrollbar::-webkit-scrollbar {
             display: none;
         }
@@ -154,12 +152,10 @@
         }
     </style>
 </head>
-
 <body class="min-h-screen flex flex-col justify-between selection:bg-pink-200 selection:text-pink-900">
 
     <div class="falling-hearts-container" id="falling-hearts"></div>
 
-    <!-- Audio Element -->
     <audio id="bg-music" loop>
         <source src="247 - Romaria  Lirik.mp3" type="audio/mpeg">
     </audio>
@@ -227,7 +223,7 @@
             </p>
         </div>
 
-        <!-- SWIPEABLE PHOTO GALLERY (56 Photos Local File Configuration) -->
+        <!-- SWIPEABLE PHOTO GALLERY (56 Cleaned Photos & Captions) -->
         <div class="w-full glass-panel rounded-3xl p-6 md:p-10 romantic-shadow relative mb-8">
             <div class="flex justify-between items-center mb-6">
                 <h2 class="font-serif text-xl md:text-2xl font-bold text-stone-800 flex items-center gap-2">
@@ -245,128 +241,74 @@
 
             <!-- Swipe Track Container -->
             <div id="photo-swipe-container" class="flex gap-4 overflow-x-auto no-scrollbar scroll-smooth pb-4 pt-2 px-1 cursor-grab active:cursor-grabbing">
-                <!-- 
-
+                
                 <!-- Foto 1 - 10 -->
-                <div class="flex-shrink-0 w-64 md:w-72 bg-white/80 rounded-2xl p-3 border border-pink-100 shadow-sm">
-                    <div class="w-full h-72 md:h-80 rounded-xl photo-frame">
-                        <img src="Asset (1).jpeg" alt="Moment 1" onerror="this.src='https://placehold.co/400x500/ffe3eb/ff3366?text=Foto+1'">
-                    </div>
-                    <p class="text-center text-xs text-stone-500 font-semibold mt-2">Kenangan #1 🤍</p>
-                </div>
-                <div class="flex-shrink-0 w-64 md:w-72 bg-white/80 rounded-2xl p-3 border border-pink-100 shadow-sm">
-                    <div class="w-full h-72 md:h-80 rounded-xl photo-frame">
-                        <img src="Asset (2).jpeg" alt="Moment 2" onerror="this.src='https://placehold.co/400x500/ffe3eb/ff3366?text=Foto+2'">
-                    </div>
-                    <p class="text-center text-xs text-stone-500 font-semibold mt-2">Kenangan #2 🤍</p>
-                </div>
-                <div class="flex-shrink-0 w-64 md:w-72 bg-white/80 rounded-2xl p-3 border border-pink-100 shadow-sm">
-                    <div class="w-full h-72 md:h-80 rounded-xl photo-frame">
-                        <img src="Asset (3).jpeg" alt="Moment 3" onerror="this.src='https://placehold.co/400x500/ffe3eb/ff3366?text=Foto+3'">
-                    </div>
-                    <p class="text-center text-xs text-stone-500 font-semibold mt-2">Kenangan #3 🤍</p>
-                </div>
-                <div class="flex-shrink-0 w-64 md:w-72 bg-white/80 rounded-2xl p-3 border border-pink-100 shadow-sm">
-                    <div class="w-full h-72 md:h-80 rounded-xl photo-frame">
-                        <img src="Asset (4).jpeg" alt="Moment 4" onerror="this.src='https://placehold.co/400x500/ffe3eb/ff3366?text=Foto+4'">
-                    </div>
-                    <p class="text-center text-xs text-stone-500 font-semibold mt-2">Kenangan #4 🤍</p>
-                </div>
-                <div class="flex-shrink-0 w-64 md:w-72 bg-white/80 rounded-2xl p-3 border border-pink-100 shadow-sm">
-                    <div class="w-full h-72 md:h-80 rounded-xl photo-frame">
-                        <img src="Asset (5).jpeg" alt="Moment 5" onerror="this.src='https://placehold.co/400x500/ffe3eb/ff3366?text=Foto+5'">
-                    </div>
-                    <p class="text-center text-xs text-stone-500 font-semibold mt-2">Kenangan #5 🤍</p>
-                </div>
-                <div class="flex-shrink-0 w-64 md:w-72 bg-white/80 rounded-2xl p-3 border border-pink-100 shadow-sm">
-                    <div class="w-full h-72 md:h-80 rounded-xl photo-frame">
-                        <img src="Asset (6).jpeg" alt="Moment 6" onerror="this.src='https://placehold.co/400x500/ffe3eb/ff3366?text=Foto+6'">
-                    </div>
-                    <p class="text-center text-xs text-stone-500 font-semibold mt-2">Kenangan #6 🤍</p>
-                </div>
-                <div class="flex-shrink-0 w-64 md:w-72 bg-white/80 rounded-2xl p-3 border border-pink-100 shadow-sm">
-                    <div class="w-full h-72 md:h-80 rounded-xl photo-frame">
-                        <img src="Asset (7).jpeg" alt="Moment 7" onerror="this.src='https://placehold.co/400x500/ffe3eb/ff3366?text=Foto+7'">
-                    </div>
-                    <p class="text-center text-xs text-stone-500 font-semibold mt-2">Kenangan #7 🤍</p>
-                </div>
-                <div class="flex-shrink-0 w-64 md:w-72 bg-white/80 rounded-2xl p-3 border border-pink-100 shadow-sm">
-                    <div class="w-full h-72 md:h-80 rounded-xl photo-frame">
-                        <img src="Asset (8).jpeg" alt="Moment 8" onerror="this.src='https://placehold.co/400x500/ffe3eb/ff3366?text=Foto+8'">
-                    </div>
-                    <p class="text-center text-xs text-stone-500 font-semibold mt-2">Kenangan #8 🤍</p>
-                </div>
-                <div class="flex-shrink-0 w-64 md:w-72 bg-white/80 rounded-2xl p-3 border border-pink-100 shadow-sm">
-                    <div class="w-full h-72 md:h-80 rounded-xl photo-frame">
-                        <img src="Asset (9).jpeg" alt="Moment 9" onerror="this.src='https://placehold.co/400x500/ffe3eb/ff3366?text=Foto+9'">
-                    </div>
-                    <p class="text-center text-xs text-stone-500 font-semibold mt-2">Kenangan #9 🤍</p>
-                </div>
-                <div class="flex-shrink-0 w-64 md:w-72 bg-white/80 rounded-2xl p-3 border border-pink-100 shadow-sm">
-                    <div class="w-full h-72 md:h-80 rounded-xl photo-frame">
-                        <img src="Asset (10).jpeg" alt="Moment 10" onerror="this.src='https://placehold.co/400x500/ffe3eb/ff3366?text=Foto+10'">
-                    </div>
-                    <p class="text-center text-xs text-stone-500 font-semibold mt-2">Kenangan #10 🤍</p>
-                </div>
+                <div class="flex-shrink-0 w-64 md:w-72 bg-white/80 rounded-2xl p-3 border border-pink-100 shadow-sm"><div class="w-full h-72 md:h-80 rounded-xl photo-frame"><img src="Asset (1).jpeg" alt="Moment 1" onerror="this.src='https://placehold.co/400x500/ffe3eb/ff3366?text=Foto+1'"></div><p class="text-center text-xs text-stone-500 font-semibold mt-2">foto cantik adik #1 🤍</p></div>
+                <div class="flex-shrink-0 w-64 md:w-72 bg-white/80 rounded-2xl p-3 border border-pink-100 shadow-sm"><div class="w-full h-72 md:h-80 rounded-xl photo-frame"><img src="Asset (2).jpeg" alt="Moment 2" onerror="this.src='https://placehold.co/400x500/ffe3eb/ff3366?text=Foto+2'"></div><p class="text-center text-xs text-stone-500 font-semibold mt-2">foto cantik adik #2 🤍</p></div>
+                <div class="flex-shrink-0 w-64 md:w-72 bg-white/80 rounded-2xl p-3 border border-pink-100 shadow-sm"><div class="w-full h-72 md:h-80 rounded-xl photo-frame"><img src="Asset (3).jpeg" alt="Moment 3" onerror="this.src='https://placehold.co/400x500/ffe3eb/ff3366?text=Foto+3'"></div><p class="text-center text-xs text-stone-500 font-semibold mt-2">foto cantik adik #3 🤍</p></div>
+                <div class="flex-shrink-0 w-64 md:w-72 bg-white/80 rounded-2xl p-3 border border-pink-100 shadow-sm"><div class="w-full h-72 md:h-80 rounded-xl photo-frame"><img src="Asset (4).jpeg" alt="Moment 4" onerror="this.src='https://placehold.co/400x500/ffe3eb/ff3366?text=Foto+4'"></div><p class="text-center text-xs text-stone-500 font-semibold mt-2">foto cantik adik #4 🤍</p></div>
+                <div class="flex-shrink-0 w-64 md:w-72 bg-white/80 rounded-2xl p-3 border border-pink-100 shadow-sm"><div class="w-full h-72 md:h-80 rounded-xl photo-frame"><img src="Asset (5).jpeg" alt="Moment 5" onerror="this.src='https://placehold.co/400x500/ffe3eb/ff3366?text=Foto+5'"></div><p class="text-center text-xs text-stone-500 font-semibold mt-2">foto cantik adik #5 🤍</p></div>
+                <div class="flex-shrink-0 w-64 md:w-72 bg-white/80 rounded-2xl p-3 border border-pink-100 shadow-sm"><div class="w-full h-72 md:h-80 rounded-xl photo-frame"><img src="Asset (6).jpeg" alt="Moment 6" onerror="this.src='https://placehold.co/400x500/ffe3eb/ff3366?text=Foto+6'"></div><p class="text-center text-xs text-stone-500 font-semibold mt-2">foto cantik adik #6 🤍</p></div>
+                <div class="flex-shrink-0 w-64 md:w-72 bg-white/80 rounded-2xl p-3 border border-pink-100 shadow-sm"><div class="w-full h-72 md:h-80 rounded-xl photo-frame"><img src="Asset (7).jpeg" alt="Moment 7" onerror="this.src='https://placehold.co/400x500/ffe3eb/ff3366?text=Foto+7'"></div><p class="text-center text-xs text-stone-500 font-semibold mt-2">foto cantik adik #7 🤍</p></div>
+                <div class="flex-shrink-0 w-64 md:w-72 bg-white/80 rounded-2xl p-3 border border-pink-100 shadow-sm"><div class="w-full h-72 md:h-80 rounded-xl photo-frame"><img src="Asset (8).jpeg" alt="Moment 8" onerror="this.src='https://placehold.co/400x500/ffe3eb/ff3366?text=Foto+8'"></div><p class="text-center text-xs text-stone-500 font-semibold mt-2">foto cantik adik #8 🤍</p></div>
+                <div class="flex-shrink-0 w-64 md:w-72 bg-white/80 rounded-2xl p-3 border border-pink-100 shadow-sm"><div class="w-full h-72 md:h-80 rounded-xl photo-frame"><img src="Asset (9).jpeg" alt="Moment 9" onerror="this.src='https://placehold.co/400x500/ffe3eb/ff3366?text=Foto+9'"></div><p class="text-center text-xs text-stone-500 font-semibold mt-2">foto cantik adik #9 🤍</p></div>
+                <div class="flex-shrink-0 w-64 md:w-72 bg-white/80 rounded-2xl p-3 border border-pink-100 shadow-sm"><div class="w-full h-72 md:h-80 rounded-xl photo-frame"><img src="Asset (10).jpeg" alt="Moment 10" onerror="this.src='https://placehold.co/400x500/ffe3eb/ff3366?text=Foto+10'"></div><p class="text-center text-xs text-stone-500 font-semibold mt-2">foto cantik adik #10 🤍</p></div>
 
                 <!-- Foto 11 - 20 -->
-                <div class="flex-shrink-0 w-64 md:w-72 bg-white/80 rounded-2xl p-3 border border-pink-100 shadow-sm"><div class="w-full h-72 md:h-80 rounded-xl photo-frame"><img src="Asset (11).jpeg" alt="Moment 11" onerror="this.src='https://placehold.co/400x500/ffe3eb/ff3366?text=Foto+11'"></div><p class="text-center text-xs text-stone-500 font-semibold mt-2">Kenangan #11 🤍</p></div>
-                <div class="flex-shrink-0 w-64 md:w-72 bg-white/80 rounded-2xl p-3 border border-pink-100 shadow-sm"><div class="w-full h-72 md:h-80 rounded-xl photo-frame"><img src="Asset (12).jpeg" alt="Moment 12" onerror="this.src='https://placehold.co/400x500/ffe3eb/ff3366?text=Foto+12'"></div><p class="text-center text-xs text-stone-500 font-semibold mt-2">Kenangan #12 🤍</p></div>
-                <div class="flex-shrink-0 w-64 md:w-72 bg-white/80 rounded-2xl p-3 border border-pink-100 shadow-sm"><div class="w-full h-72 md:h-80 rounded-xl photo-frame"><img src="Asset (13).jpeg" alt="Moment 13" onerror="this.src='https://placehold.co/400x500/ffe3eb/ff3366?text=Foto+13'"></div><p class="text-center text-xs text-stone-500 font-semibold mt-2">Kenangan #13 🤍</p></div>
-                <div class="flex-shrink-0 w-64 md:w-72 bg-white/80 rounded-2xl p-3 border border-pink-100 shadow-sm"><div class="w-full h-72 md:h-80 rounded-xl photo-frame"><img src="Asset (14).jpeg" alt="Moment 14" onerror="this.src='https://placehold.co/400x500/ffe3eb/ff3366?text=Foto+14'"></div><p class="text-center text-xs text-stone-500 font-semibold mt-2">Kenangan #14 🤍</p></div>
-                <div class="flex-shrink-0 w-64 md:w-72 bg-white/80 rounded-2xl p-3 border border-pink-100 shadow-sm"><div class="w-full h-72 md:h-80 rounded-xl photo-frame"><img src="Asset (15).jpeg" alt="Moment 15" onerror="this.src='https://placehold.co/400x500/ffe3eb/ff3366?text=Foto+15'"></div><p class="text-center text-xs text-stone-500 font-semibold mt-2">Kenangan #15 🤍</p></div>
-                <div class="flex-shrink-0 w-64 md:w-72 bg-white/80 rounded-2xl p-3 border border-pink-100 shadow-sm"><div class="w-full h-72 md:h-80 rounded-xl photo-frame"><img src="Asset (16).jpeg" alt="Moment 16" onerror="this.src='https://placehold.co/400x500/ffe3eb/ff3366?text=Foto+16'"></div><p class="text-center text-xs text-stone-500 font-semibold mt-2">Kenangan #16 🤍</p></div>
-                <div class="flex-shrink-0 w-64 md:w-72 bg-white/80 rounded-2xl p-3 border border-pink-100 shadow-sm"><div class="w-full h-72 md:h-80 rounded-xl photo-frame"><img src="Asset (17).jpeg" alt="Moment 17" onerror="this.src='https://placehold.co/400x500/ffe3eb/ff3366?text=Foto+17'"></div><p class="text-center text-xs text-stone-500 font-semibold mt-2">Kenangan #17 🤍</p></div>
-                <div class="flex-shrink-0 w-64 md:w-72 bg-white/80 rounded-2xl p-3 border border-pink-100 shadow-sm"><div class="w-full h-72 md:h-80 rounded-xl photo-frame"><img src="Asset (18).jpeg" alt="Moment 18" onerror="this.src='https://placehold.co/400x500/ffe3eb/ff3366?text=Foto+18'"></div><p class="text-center text-xs text-stone-500 font-semibold mt-2">Kenangan #18 🤍</p></div>
-                <div class="flex-shrink-0 w-64 md:w-72 bg-white/80 rounded-2xl p-3 border border-pink-100 shadow-sm"><div class="w-full h-72 md:h-80 rounded-xl photo-frame"><img src="Asset (19).jpeg" alt="Moment 19" onerror="this.src='https://placehold.co/400x500/ffe3eb/ff3366?text=Foto+19'"></div><p class="text-center text-xs text-stone-500 font-semibold mt-2">Kenangan #19 🤍</p></div>
-                <div class="flex-shrink-0 w-64 md:w-72 bg-white/80 rounded-2xl p-3 border border-pink-100 shadow-sm"><div class="w-full h-72 md:h-80 rounded-xl photo-frame"><img src="Asset (20).jpeg" alt="Moment 20" onerror="this.src='https://placehold.co/400x500/ffe3eb/ff3366?text=Foto+20'"></div><p class="text-center text-xs text-stone-500 font-semibold mt-2">Kenangan #20 🤍</p></div>                
-                <div class="flex-shrink-0 w-64 md:w-72 bg-white/80 rounded-2xl p-3 border border-pink-100 shadow-sm"><div class="w-full h-72 md:h-80 rounded-xl photo-frame"><img src="Asset (21).jpeg" alt="Moment   19" onerror="this.src='https://placehold.co/400x500/ffe3eb/ff3366?text=Foto+19'"></div><p class="text-center text-xs text-stone-500 font-semibold mt-2">Kenangan #21 🤍</p></div>
+                <div class="flex-shrink-0 w-64 md:w-72 bg-white/80 rounded-2xl p-3 border border-pink-100 shadow-sm"><div class="w-full h-72 md:h-80 rounded-xl photo-frame"><img src="Asset (11).jpeg" alt="Moment 11" onerror="this.src='https://placehold.co/400x500/ffe3eb/ff3366?text=Foto+11'"></div><p class="text-center text-xs text-stone-500 font-semibold mt-2">foto cantik adik #11 🤍</p></div>
+                <div class="flex-shrink-0 w-64 md:w-72 bg-white/80 rounded-2xl p-3 border border-pink-100 shadow-sm"><div class="w-full h-72 md:h-80 rounded-xl photo-frame"><img src="Asset (12).jpeg" alt="Moment 12" onerror="this.src='https://placehold.co/400x500/ffe3eb/ff3366?text=Foto+12'"></div><p class="text-center text-xs text-stone-500 font-semibold mt-2">foto cantik adik #12 🤍</p></div>
+                <div class="flex-shrink-0 w-64 md:w-72 bg-white/80 rounded-2xl p-3 border border-pink-100 shadow-sm"><div class="w-full h-72 md:h-80 rounded-xl photo-frame"><img src="Asset (13).jpeg" alt="Moment 13" onerror="this.src='https://placehold.co/400x500/ffe3eb/ff3366?text=Foto+13'"></div><p class="text-center text-xs text-stone-500 font-semibold mt-2">foto cantik adik #13 🤍</p></div>
+                <div class="flex-shrink-0 w-64 md:w-72 bg-white/80 rounded-2xl p-3 border border-pink-100 shadow-sm"><div class="w-full h-72 md:h-80 rounded-xl photo-frame"><img src="Asset (14).jpeg" alt="Moment 14" onerror="this.src='https://placehold.co/400x500/ffe3eb/ff3366?text=Foto+14'"></div><p class="text-center text-xs text-stone-500 font-semibold mt-2">foto cantik adik #14 🤍</p></div>
+                <div class="flex-shrink-0 w-64 md:w-72 bg-white/80 rounded-2xl p-3 border border-pink-100 shadow-sm"><div class="w-full h-72 md:h-80 rounded-xl photo-frame"><img src="Asset (15).jpeg" alt="Moment 15" onerror="this.src='https://placehold.co/400x500/ffe3eb/ff3366?text=Foto+15'"></div><p class="text-center text-xs text-stone-500 font-semibold mt-2">foto cantik adik #15 🤍</p></div>
+                <div class="flex-shrink-0 w-64 md:w-72 bg-white/80 rounded-2xl p-3 border border-pink-100 shadow-sm"><div class="w-full h-72 md:h-80 rounded-xl photo-frame"><img src="Asset (16).jpeg" alt="Moment 16" onerror="this.src='https://placehold.co/400x500/ffe3eb/ff3366?text=Foto+16'"></div><p class="text-center text-xs text-stone-500 font-semibold mt-2">foto cantik adik #16 🤍</p></div>
+                <div class="flex-shrink-0 w-64 md:w-72 bg-white/80 rounded-2xl p-3 border border-pink-100 shadow-sm"><div class="w-full h-72 md:h-80 rounded-xl photo-frame"><img src="Asset (17).jpeg" alt="Moment 17" onerror="this.src='https://placehold.co/400x500/ffe3eb/ff3366?text=Foto+17'"></div><p class="text-center text-xs text-stone-500 font-semibold mt-2">foto cantik adik #17 🤍</p></div>
+                <div class="flex-shrink-0 w-64 md:w-72 bg-white/80 rounded-2xl p-3 border border-pink-100 shadow-sm"><div class="w-full h-72 md:h-80 rounded-xl photo-frame"><img src="Asset (18).jpeg" alt="Moment 18" onerror="this.src='https://placehold.co/400x500/ffe3eb/ff3366?text=Foto+18'"></div><p class="text-center text-xs text-stone-500 font-semibold mt-2">foto cantik adik #18 🤍</p></div>
+                <div class="flex-shrink-0 w-64 md:w-72 bg-white/80 rounded-2xl p-3 border border-pink-100 shadow-sm"><div class="w-full h-72 md:h-80 rounded-xl photo-frame"><img src="Asset (19).jpeg" alt="Moment 19" onerror="this.src='https://placehold.co/400x500/ffe3eb/ff3366?text=Foto+19'"></div><p class="text-center text-xs text-stone-500 font-semibold mt-2">foto cantik adik #19 🤍</p></div>
+                <div class="flex-shrink-0 w-64 md:w-72 bg-white/80 rounded-2xl p-3 border border-pink-100 shadow-sm"><div class="w-full h-72 md:h-80 rounded-xl photo-frame"><img src="Asset (20).jpeg" alt="Moment 20" onerror="this.src='https://placehold.co/400x500/ffe3eb/ff3366?text=Foto+20'"></div><p class="text-center text-xs text-stone-500 font-semibold mt-2">foto cantik adik #20 🤍</p></div>                
+                <div class="flex-shrink-0 w-64 md:w-72 bg-white/80 rounded-2xl p-3 border border-pink-100 shadow-sm"><div class="w-full h-72 md:h-80 rounded-xl photo-frame"><img src="Asset (21).jpeg" alt="Moment 21" onerror="this.src='https://placehold.co/400x500/ffe3eb/ff3366?text=Foto+21'"></div><p class="text-center text-xs text-stone-500 font-semibold mt-2">foto cantik adik #21 🤍</p></div>
                 
-                <!-- Foto 21 - 30 -->
-                <div class="flex-shrink-0 w-64 md:w-72 bg-white/80 rounded-2xl p-3 border border-pink-100 shadow-sm"><div class="w-full h-72 md:h-80 rounded-xl photo-frame"><img src="Asset (22).jpeg" alt="Moment 19" onerror="this.src='https://placehold.co/400x500/ffe3eb/ff3366?text=Foto+19'"></div><p class="text-center text-xs text-stone-500 font-semibold mt-2">Kenangan #22 🤍</p></div>
-                <div class="flex-shrink-0 w-64 md:w-72 bg-white/80 rounded-2xl p-3 border border-pink-100 shadow-sm"><div class="w-full h-72 md:h-80 rounded-xl photo-frame"><img src="Asset (23).jpeg" alt="Moment 19" onerror="this.src='https://placehold.co/400x500/ffe3eb/ff3366?text=Foto+19'"></div><p class="text-center text-xs text-stone-500 font-semibold mt-2">Kenangan #23 🤍</p></div>
-                <div class="flex-shrink-0 w-64 md:w-72 bg-white/80 rounded-2xl p-3 border border-pink-100 shadow-sm"><div class="w-full h-72 md:h-80 rounded-xl photo-frame"><img src="Asset (24).jpeg" alt="Moment 24" onerror="this.src='https://placehold.co/400x500/ffe3eb/ff3366?text=Foto+24'"></div><p class="text-center text-xs text-stone-500 font-semibold mt-2">Kenangan #24 🤍</p></div>
-                <div class="flex-shrink-0 w-64 md:w-72 bg-white/80 rounded-2xl p-3 border border-pink-100 shadow-sm"><div class="w-full h-72 md:h-80 rounded-xl photo-frame"><img src="Asset (25).jpeg" alt="Moment 25" onerror="this.src='https://placehold.co/400x500/ffe3eb/ff3366?text=Foto+25'"></div><p class="text-center text-xs text-stone-500 font-semibold mt-2">Kenangan #25 🤍</p></div>
-                <div class="flex-shrink-0 w-64 md:w-72 bg-white/80 rounded-2xl p-3 border border-pink-100 shadow-sm"><div class="w-full h-72 md:h-80 rounded-xl photo-frame"><img src="Asset (26).jpeg" alt="Moment 26" onerror="this.src='https://placehold.co/400x500/ffe3eb/ff3366?text=Foto+26'"></div><p class="text-center text-xs text-stone-500 font-semibold mt-2">Kenangan #26 🤍</p></div>
-                <div class="flex-shrink-0 w-64 md:w-72 bg-white/80 rounded-2xl p-3 border border-pink-100 shadow-sm"><div class="w-full h-72 md:h-80 rounded-xl photo-frame"><img src="Asset (27).jpeg" alt="Moment 27" onerror="this.src='https://placehold.co/400x500/ffe3eb/ff3366?text=Foto+27'"></div><p class="text-center text-xs text-stone-500 font-semibold mt-2">Kenangan #27 🤍</p></div>
-                <div class="flex-shrink-0 w-64 md:w-72 bg-white/80 rounded-2xl p-3 border border-pink-100 shadow-sm"><div class="w-full h-72 md:h-80 rounded-xl photo-frame"><img src="Asset (28).jpeg" alt="Moment 28" onerror="this.src='https://placehold.co/400x500/ffe3eb/ff3366?text=Foto+28'"></div><p class="text-center text-xs text-stone-500 font-semibold mt-2">Kenangan #28 🤍</p></div>
-                <div class="flex-shrink-0 w-64 md:w-72 bg-white/80 rounded-2xl p-3 border border-pink-100 shadow-sm"><div class="w-full h-72 md:h-80 rounded-xl photo-frame"><img src="Asset (29).jpeg" alt="Moment 29" onerror="this.src='https://placehold.co/400x500/ffe3eb/ff3366?text=Foto+29'"></div><p class="text-center text-xs text-stone-500 font-semibold mt-2">Kenangan #29 🤍</p></div>
-                <div class="flex-shrink-0 w-64 md:w-72 bg-white/80 rounded-2xl p-3 border border-pink-100 shadow-sm"><div class="w-full h-72 md:h-80 rounded-xl photo-frame"><img src="Asset (30).jpeg" alt="Moment 30" onerror="this.src='https://placehold.co/400x500/ffe3eb/ff3366?text=Foto+30'"></div><p class="text-center text-xs text-stone-500 font-semibold mt-2">Kenangan #30 🤍</p></div>
+                <!-- Foto 22 - 30 -->
+                <div class="flex-shrink-0 w-64 md:w-72 bg-white/80 rounded-2xl p-3 border border-pink-100 shadow-sm"><div class="w-full h-72 md:h-80 rounded-xl photo-frame"><img src="Asset (22).jpeg" alt="Moment 22" onerror="this.src='https://placehold.co/400x500/ffe3eb/ff3366?text=Foto+22'"></div><p class="text-center text-xs text-stone-500 font-semibold mt-2">foto cantik adik #22 🤍</p></div>
+                <div class="flex-shrink-0 w-64 md:w-72 bg-white/80 rounded-2xl p-3 border border-pink-100 shadow-sm"><div class="w-full h-72 md:h-80 rounded-xl photo-frame"><img src="Asset (23).jpeg" alt="Moment 23" onerror="this.src='https://placehold.co/400x500/ffe3eb/ff3366?text=Foto+23'"></div><p class="text-center text-xs text-stone-500 font-semibold mt-2">foto cantik adik #23 🤍</p></div>
+                <div class="flex-shrink-0 w-64 md:w-72 bg-white/80 rounded-2xl p-3 border border-pink-100 shadow-sm"><div class="w-full h-72 md:h-80 rounded-xl photo-frame"><img src="Asset (24).jpeg" alt="Moment 24" onerror="this.src='https://placehold.co/400x500/ffe3eb/ff3366?text=Foto+24'"></div><p class="text-center text-xs text-stone-500 font-semibold mt-2">foto cantik adik #24 🤍</p></div>
+                <div class="flex-shrink-0 w-64 md:w-72 bg-white/80 rounded-2xl p-3 border border-pink-100 shadow-sm"><div class="w-full h-72 md:h-80 rounded-xl photo-frame"><img src="Asset (25).jpeg" alt="Moment 25" onerror="this.src='https://placehold.co/400x500/ffe3eb/ff3366?text=Foto+25'"></div><p class="text-center text-xs text-stone-500 font-semibold mt-2">foto cantik adik #25 🤍</p></div>
+                <div class="flex-shrink-0 w-64 md:w-72 bg-white/80 rounded-2xl p-3 border border-pink-100 shadow-sm"><div class="w-full h-72 md:h-80 rounded-xl photo-frame"><img src="Asset (26).jpeg" alt="Moment 26" onerror="this.src='https://placehold.co/400x500/ffe3eb/ff3366?text=Foto+26'"></div><p class="text-center text-xs text-stone-500 font-semibold mt-2">foto cantik adik #26 🤍</p></div>
+                <div class="flex-shrink-0 w-64 md:w-72 bg-white/80 rounded-2xl p-3 border border-pink-100 shadow-sm"><div class="w-full h-72 md:h-80 rounded-xl photo-frame"><img src="Asset (27).jpeg" alt="Moment 27" onerror="this.src='https://placehold.co/400x500/ffe3eb/ff3366?text=Foto+27'"></div><p class="text-center text-xs text-stone-500 font-semibold mt-2">foto cantik adik #27 🤍</p></div>
+                <div class="flex-shrink-0 w-64 md:w-72 bg-white/80 rounded-2xl p-3 border border-pink-100 shadow-sm"><div class="w-full h-72 md:h-80 rounded-xl photo-frame"><img src="Asset (28).jpeg" alt="Moment 28" onerror="this.src='https://placehold.co/400x500/ffe3eb/ff3366?text=Foto+28'"></div><p class="text-center text-xs text-stone-500 font-semibold mt-2">foto cantik adik #28 🤍</p></div>
+                <div class="flex-shrink-0 w-64 md:w-72 bg-white/80 rounded-2xl p-3 border border-pink-100 shadow-sm"><div class="w-full h-72 md:h-80 rounded-xl photo-frame"><img src="Asset (29).jpeg" alt="Moment 29" onerror="this.src='https://placehold.co/400x500/ffe3eb/ff3366?text=Foto+29'"></div><p class="text-center text-xs text-stone-500 font-semibold mt-2">foto cantik adik #29 🤍</p></div>
+                <div class="flex-shrink-0 w-64 md:w-72 bg-white/80 rounded-2xl p-3 border border-pink-100 shadow-sm"><div class="w-full h-72 md:h-80 rounded-xl photo-frame"><img src="Asset (30).jpeg" alt="Moment 30" onerror="this.src='https://placehold.co/400x500/ffe3eb/ff3366?text=Foto+30'"></div><p class="text-center text-xs text-stone-500 font-semibold mt-2">foto cantik adik #30 🤍</p></div>
 
                 <!-- Foto 31 - 40 -->
-                <div class="flex-shrink-0 w-64 md:w-72 bg-white/80 rounded-2xl p-3 border border-pink-100 shadow-sm"><div class="w-full h-72 md:h-80 rounded-xl photo-frame"><img src="Asset (31).jpeg" alt="Moment 31" onerror="this.src='https://placehold.co/400x500/ffe3eb/ff3366?text=Foto+31'"></div><p class="text-center text-xs text-stone-500 font-semibold mt-2">Kenangan #31 🤍</p></div>
-                <div class="flex-shrink-0 w-64 md:w-72 bg-white/80 rounded-2xl p-3 border border-pink-100 shadow-sm"><div class="w-full h-72 md:h-80 rounded-xl photo-frame"><img src="Asset (32).jpeg" alt="Moment 32" onerror="this.src='https://placehold.co/400x500/ffe3eb/ff3366?text=Foto+32'"></div><p class="text-center text-xs text-stone-500 font-semibold mt-2">Kenangan #32 🤍</p></div>
-                <div class="flex-shrink-0 w-64 md:w-72 bg-white/80 rounded-2xl p-3 border border-pink-100 shadow-sm"><div class="w-full h-72 md:h-80 rounded-xl photo-frame"><img src="Asset (33).jpeg" alt="Moment 33" onerror="this.src='https://placehold.co/400x500/ffe3eb/ff3366?text=Foto+33'"></div><p class="text-center text-xs text-stone-500 font-semibold mt-2">Kenangan #33 🤍</p></div>
-                <div class="flex-shrink-0 w-64 md:w-72 bg-white/80 rounded-2xl p-3 border border-pink-100 shadow-sm"><div class="w-full h-72 md:h-80 rounded-xl photo-frame"><img src="Asset (34).jpeg" alt="Moment 34" onerror="this.src='https://placehold.co/400x500/ffe3eb/ff3366?text=Foto+34'"></div><p class="text-center text-xs text-stone-500 font-semibold mt-2">Kenangan #34 🤍</p></div>
-                <div class="flex-shrink-0 w-64 md:w-72 bg-white/80 rounded-2xl p-3 border border-pink-100 shadow-sm"><div class="w-full h-72 md:h-80 rounded-xl photo-frame"><img src="Asset (35).jpeg" alt="Moment 35" onerror="this.src='https://placehold.co/400x500/ffe3eb/ff3366?text=Foto+35'"></div><p class="text-center text-xs text-stone-500 font-semibold mt-2">Kenangan #35 🤍</p></div>
-                <div class="flex-shrink-0 w-64 md:w-72 bg-white/80 rounded-2xl p-3 border border-pink-100 shadow-sm"><div class="w-full h-72 md:h-80 rounded-xl photo-frame"><img src="Asset (36).jpeg" alt="Moment 36" onerror="this.src='https://placehold.co/400x500/ffe3eb/ff3366?text=Foto+36'"></div><p class="text-center text-xs text-stone-500 font-semibold mt-2">Kenangan #36 🤍</p></div>
-                <div class="flex-shrink-0 w-64 md:w-72 bg-white/80 rounded-2xl p-3 border border-pink-100 shadow-sm"><div class="w-full h-72 md:h-80 rounded-xl photo-frame"><img src="Asset (37).jpeg" alt="Moment 37" onerror="this.src='https://placehold.co/400x500/ffe3eb/ff3366?text=Foto+37'"></div><p class="text-center text-xs text-stone-500 font-semibold mt-2">Kenangan #37 🤍</p></div>
-                <div class="flex-shrink-0 w-64 md:w-72 bg-white/80 rounded-2xl p-3 border border-pink-100 shadow-sm"><div class="w-full h-72 md:h-80 rounded-xl photo-frame"><img src="Asset (38).jpeg" alt="Moment 38" onerror="this.src='https://placehold.co/400x500/ffe3eb/ff3366?text=Foto+38'"></div><p class="text-center text-xs text-stone-500 font-semibold mt-2">Kenangan #38 🤍</p></div>
-                <div class="flex-shrink-0 w-64 md:w-72 bg-white/80 rounded-2xl p-3 border border-pink-100 shadow-sm"><div class="w-full h-72 md:h-80 rounded-xl photo-frame"><img src="Asset (39).jpeg" alt="Moment 39" onerror="this.src='https://placehold.co/400x500/ffe3eb/ff3366?text=Foto+39'"></div><p class="text-center text-xs text-stone-500 font-semibold mt-2">Kenangan #39 🤍</p></div>
-                <div class="flex-shrink-0 w-64 md:w-72 bg-white/80 rounded-2xl p-3 border border-pink-100 shadow-sm"><div class="w-full h-72 md:h-80 rounded-xl photo-frame"><img src="Asset (40).jpeg" alt="Moment 40" onerror="this.src='https://placehold.co/400x500/ffe3eb/ff3366?text=Foto+40'"></div><p class="text-center text-xs text-stone-500 font-semibold mt-2">Kenangan #40 🤍</p></div>
-
-
-               
+                <div class="flex-shrink-0 w-64 md:w-72 bg-white/80 rounded-2xl p-3 border border-pink-100 shadow-sm"><div class="w-full h-72 md:h-80 rounded-xl photo-frame"><img src="Asset (31).jpeg" alt="Moment 31" onerror="this.src='https://placehold.co/400x500/ffe3eb/ff3366?text=Foto+31'"></div><p class="text-center text-xs text-stone-500 font-semibold mt-2">foto cantik adik #31 🤍</p></div>
+                <div class="flex-shrink-0 w-64 md:w-72 bg-white/80 rounded-2xl p-3 border border-pink-100 shadow-sm"><div class="w-full h-72 md:h-80 rounded-xl photo-frame"><img src="Asset (32).jpeg" alt="Moment 32" onerror="this.src='https://placehold.co/400x500/ffe3eb/ff3366?text=Foto+32'"></div><p class="text-center text-xs text-stone-500 font-semibold mt-2">foto cantik adik #32 🤍</p></div>
+                <div class="flex-shrink-0 w-64 md:w-72 bg-white/80 rounded-2xl p-3 border border-pink-100 shadow-sm"><div class="w-full h-72 md:h-80 rounded-xl photo-frame"><img src="Asset (33).jpeg" alt="Moment 33" onerror="this.src='https://placehold.co/400x500/ffe3eb/ff3366?text=Foto+33'"></div><p class="text-center text-xs text-stone-500 font-semibold mt-2">foto cantik adik #33 🤍</p></div>
+                <div class="flex-shrink-0 w-64 md:w-72 bg-white/80 rounded-2xl p-3 border border-pink-100 shadow-sm"><div class="w-full h-72 md:h-80 rounded-xl photo-frame"><img src="Asset (34).jpeg" alt="Moment 34" onerror="this.src='https://placehold.co/400x500/ffe3eb/ff3366?text=Foto+34'"></div><p class="text-center text-xs text-stone-500 font-semibold mt-2">foto cantik adik #34 🤍</p></div>
+                <div class="flex-shrink-0 w-64 md:w-72 bg-white/80 rounded-2xl p-3 border border-pink-100 shadow-sm"><div class="w-full h-72 md:h-80 rounded-xl photo-frame"><img src="Asset (35).jpeg" alt="Moment 35" onerror="this.src='https://placehold.co/400x500/ffe3eb/ff3366?text=Foto+35'"></div><p class="text-center text-xs text-stone-500 font-semibold mt-2">foto cantik adik #35 🤍</p></div>
+                <div class="flex-shrink-0 w-64 md:w-72 bg-white/80 rounded-2xl p-3 border border-pink-100 shadow-sm"><div class="w-full h-72 md:h-80 rounded-xl photo-frame"><img src="Asset (36).jpeg" alt="Moment 36" onerror="this.src='https://placehold.co/400x500/ffe3eb/ff3366?text=Foto+36'"></div><p class="text-center text-xs text-stone-500 font-semibold mt-2">foto cantik adik #36 🤍</p></div>
+                <div class="flex-shrink-0 w-64 md:w-72 bg-white/80 rounded-2xl p-3 border border-pink-100 shadow-sm"><div class="w-full h-72 md:h-80 rounded-xl photo-frame"><img src="Asset (37).jpeg" alt="Moment 37" onerror="this.src='https://placehold.co/400x500/ffe3eb/ff3366?text=Foto+37'"></div><p class="text-center text-xs text-stone-500 font-semibold mt-2">foto cantik adik #37 🤍</p></div>
+                <div class="flex-shrink-0 w-64 md:w-72 bg-white/80 rounded-2xl p-3 border border-pink-100 shadow-sm"><div class="w-full h-72 md:h-80 rounded-xl photo-frame"><img src="Asset (38).jpeg" alt="Moment 38" onerror="this.src='https://placehold.co/400x500/ffe3eb/ff3366?text=Foto+38'"></div><p class="text-center text-xs text-stone-500 font-semibold mt-2">foto cantik adik #38 🤍</p></div>
+                <div class="flex-shrink-0 w-64 md:w-72 bg-white/80 rounded-2xl p-3 border border-pink-100 shadow-sm"><div class="w-full h-72 md:h-80 rounded-xl photo-frame"><img src="Asset (39).jpeg" alt="Moment 39" onerror="this.src='https://placehold.co/400x500/ffe3eb/ff3366?text=Foto+39'"></div><p class="text-center text-xs text-stone-500 font-semibold mt-2">foto cantik adik #39 🤍</p></div>
+                <div class="flex-shrink-0 w-64 md:w-72 bg-white/80 rounded-2xl p-3 border border-pink-100 shadow-sm"><div class="w-full h-72 md:h-80 rounded-xl photo-frame"><img src="Asset (40).jpeg" alt="Moment 40" onerror="this.src='https://placehold.co/400x500/ffe3eb/ff3366?text=Foto+40'"></div><p class="text-center text-xs text-stone-500 font-semibold mt-2">foto cantik adik #40 🤍</p></div>
 
                 <!-- Foto 41 - 50 -->
-                <div class="flex-shrink-0 w-64 md:w-72 bg-white/80 rounded-2xl p-3 border border-pink-100 shadow-sm"><div class="w-full h-72 md:h-80 rounded-xl photo-frame"><img src="Asset (41).jpeg" alt="Moment 41" onerror="this.src='https://placehold.co/400x500/ffe3eb/ff3366?text=Foto+41'"></div><p class="text-center text-xs text-stone-500 font-semibold mt-2">Kenangan #41 🤍</p></div>
-                <div class="flex-shrink-0 w-64 md:w-72 bg-white/80 rounded-2xl p-3 border border-pink-100 shadow-sm"><div class="w-full h-72 md:h-80 rounded-xl photo-frame"><img src="Asset (42).jpeg" alt="Moment 42" onerror="this.src='https://placehold.co/400x500/ffe3eb/ff3366?text=Foto+42'"></div><p class="text-center text-xs text-stone-500 font-semibold mt-2">Kenangan #42 🤍</p></div>
-                <div class="flex-shrink-0 w-64 md:w-72 bg-white/80 rounded-2xl p-3 border border-pink-100 shadow-sm"><div class="w-full h-72 md:h-80 rounded-xl photo-frame"><img src="Asset (43).jpeg" alt="Moment 43" onerror="this.src='https://placehold.co/400x500/ffe3eb/ff3366?text=Foto+43'"></div><p class="text-center text-xs text-stone-500 font-semibold mt-2">Kenangan #43 🤍</p></div>
-                <div class="flex-shrink-0 w-64 md:w-72 bg-white/80 rounded-2xl p-3 border border-pink-100 shadow-sm"><div class="w-full h-72 md:h-80 rounded-xl photo-frame"><img src="Asset (44).jpeg" alt="Moment 44" onerror="this.src='https://placehold.co/400x500/ffe3eb/ff3366?text=Foto+44'"></div><p class="text-center text-xs text-stone-500 font-semibold mt-2">Kenangan #44 🤍</p></div>
-                <div class="flex-shrink-0 w-64 md:w-72 bg-white/80 rounded-2xl p-3 border border-pink-100 shadow-sm"><div class="w-full h-72 md:h-8₀ rounded-xl photo-frame"><img src="Asset (45).jpeg" alt="Moment 45" onerror="this.src='https://placehold.co/4₀₀x₅₀₀/ffe₃eb/ff₃₃₆₆?text=Foto+₄₅'"></div><p class="text-center text-xs text-stone-5₀₀ font-semibold mt-₂">Kenangan #45 🤍</p></div>
-                <div class="flex-shrink-0 w-64 md:w-72 bg-white/80 rounded-2xl p-3 border border-pink-100 shadow-sm"><div class="w-full h-72 md:h-8₀ rounded-xl photo-frame"><img src="Asset (46).jpeg" alt="Moment 46" onerror="this.src='https://placehold.co/4₀₀x₅₀₀/ffe₃eb/ff₃₃₆₆?text=Foto+₄₆'"></div><p class="text-center text-xs text-stone-5₀₀ font-semibold mt-₂">Kenangan #46 🤍</p></div>
-                <div class="flex-shrink-0 w-64 md:w-72 bg-white/80 rounded-2xl p-3 border border-pink-100 shadow-sm"><div class="w-full h-72 md:h-80 rounded-xl photo-frame"><img src="Asset (47).jpeg" alt="Moment 47" onerror="this.src='https://placehold.co/400x500/ffe3eb/ff3366?text=Foto+47'"></div><p class="text-center text-xs text-stone-500 font-semibold mt-2">Kenangan #47 🤍</p></div>
-                <div class="flex-shrink-0 w-64 md:w-72 bg-white/80 rounded-2xl p-3 border border-pink-100 shadow-sm"><div class="w-full h-72 md:h-80 rounded-xl photo-frame"><img src="Asset (48).jpeg" alt="Moment 48" onerror="this.src='https://placehold.co/400x500/ffe3eb/ff3366?text=Foto+48'"></div><p class="text-center text-xs text-stone-500 font-semibold mt-2">Kenangan #48 🤍</p></div>
-                <div class="flex-shrink-0 w-64 md:w-72 bg-white/80 rounded-2xl p-3 border border-pink-100 shadow-sm"><div class="w-full h-72 md:h-80 rounded-xl photo-frame"><img src="Asset (49).jpeg" alt="Moment 49" onerror="this.src='https://placehold.co/400x500/ffe3eb/ff3366?text=Foto+49'"></div><p class="text-center text-xs text-stone-500 font-semibold mt-2">Kenangan #49 🤍</p></div>
-                <div class="flex-shrink-0 w-64 md:w-72 bg-white/80 rounded-2xl p-3 border border-pink-100 shadow-sm"><div class="w-full h-72 md:h-80 rounded-xl photo-frame"><img src="Asset (50).jpeg" alt="Moment 50" onerror="this.src='https://placehold.co/400x500/ffe3eb/ff3366?text=Foto+50'"></div><p class="text-center text-xs text-stone-500 font-semibold mt-2">Kenangan #50 🤍</p></div>
+                <div class="flex-shrink-0 w-64 md:w-72 bg-white/80 rounded-2xl p-3 border border-pink-100 shadow-sm"><div class="w-full h-72 md:h-80 rounded-xl photo-frame"><img src="Asset (41).jpeg" alt="Moment 41" onerror="this.src='https://placehold.co/400x500/ffe3eb/ff3366?text=Foto+41'"></div><p class="text-center text-xs text-stone-500 font-semibold mt-2">foto cantik adik #41 🤍</p></div>
+                <div class="flex-shrink-0 w-64 md:w-72 bg-white/80 rounded-2xl p-3 border border-pink-100 shadow-sm"><div class="w-full h-72 md:h-80 rounded-xl photo-frame"><img src="Asset (42).jpeg" alt="Moment 42" onerror="this.src='https://placehold.co/400x500/ffe3eb/ff3366?text=Foto+42'"></div><p class="text-center text-xs text-stone-500 font-semibold mt-2">foto cantik adik #42 🤍</p></div>
+                <div class="flex-shrink-0 w-64 md:w-72 bg-white/80 rounded-2xl p-3 border border-pink-100 shadow-sm"><div class="w-full h-72 md:h-80 rounded-xl photo-frame"><img src="Asset (43).jpeg" alt="Moment 43" onerror="this.src='https://placehold.co/400x500/ffe3eb/ff3366?text=Foto+43'"></div><p class="text-center text-xs text-stone-500 font-semibold mt-2">foto cantik adik #43 🤍</p></div>
+                <div class="flex-shrink-0 w-64 md:w-72 bg-white/80 rounded-2xl p-3 border border-pink-100 shadow-sm"><div class="w-full h-72 md:h-80 rounded-xl photo-frame"><img src="Asset (44).jpeg" alt="Moment 44" onerror="this.src='https://placehold.co/400x500/ffe3eb/ff3366?text=Foto+44'"></div><p class="text-center text-xs text-stone-500 font-semibold mt-2">foto cantik adik #44 🤍</p></div>
+                <div class="flex-shrink-0 w-64 md:w-72 bg-white/80 rounded-2xl p-3 border border-pink-100 shadow-sm"><div class="w-full h-72 md:h-80 rounded-xl photo-frame"><img src="Asset (45).jpeg" alt="Moment 45" onerror="this.src='https://placehold.co/400x500/ffe3eb/ff3366?text=Foto+45'"></div><p class="text-center text-xs text-stone-500 font-semibold mt-2">foto cantik adik #45 🤍</p></div>
+                <div class="flex-shrink-0 w-64 md:w-72 bg-white/80 rounded-2xl p-3 border border-pink-100 shadow-sm"><div class="w-full h-72 md:h-80 rounded-xl photo-frame"><img src="Asset (46).jpeg" alt="Moment 46" onerror="this.src='https://placehold.co/400x500/ffe3eb/ff3366?text=Foto+46'"></div><p class="text-center text-xs text-stone-500 font-semibold mt-2">foto cantik adik #46 🤍</p></div>
+                <div class="flex-shrink-0 w-64 md:w-72 bg-white/80 rounded-2xl p-3 border border-pink-100 shadow-sm"><div class="w-full h-72 md:h-80 rounded-xl photo-frame"><img src="Asset (47).jpeg" alt="Moment 47" onerror="this.src='https://placehold.co/400x500/ffe3eb/ff3366?text=Foto+47'"></div><p class="text-center text-xs text-stone-500 font-semibold mt-2">foto cantik adik #47 🤍</p></div>
+                <div class="flex-shrink-0 w-64 md:w-72 bg-white/80 rounded-2xl p-3 border border-pink-100 shadow-sm"><div class="w-full h-72 md:h-80 rounded-xl photo-frame"><img src="Asset (48).jpeg" alt="Moment 48" onerror="this.src='https://placehold.co/400x500/ffe3eb/ff3366?text=Foto+48'"></div><p class="text-center text-xs text-stone-500 font-semibold mt-2">foto cantik adik #48 🤍</p></div>
+                <div class="flex-shrink-0 w-64 md:w-72 bg-white/80 rounded-2xl p-3 border border-pink-100 shadow-sm"><div class="w-full h-72 md:h-80 rounded-xl photo-frame"><img src="Asset (49).jpeg" alt="Moment 49" onerror="this.src='https://placehold.co/400x500/ffe3eb/ff3366?text=Foto+49'"></div><p class="text-center text-xs text-stone-500 font-semibold mt-2">foto cantik adik #49 🤍</p></div>
+                <div class="flex-shrink-0 w-64 md:w-72 bg-white/80 rounded-2xl p-3 border border-pink-100 shadow-sm"><div class="w-full h-72 md:h-80 rounded-xl photo-frame"><img src="Asset (50).jpeg" alt="Moment 50" onerror="this.src='https://placehold.co/400x500/ffe3eb/ff3366?text=Foto+50'"></div><p class="text-center text-xs text-stone-500 font-semibold mt-2">foto cantik adik #50 🤍</p></div>
 
                 <!-- Foto 51 - 56 -->
-                <div class="flex-shrink-0 w-64 md:w-72 bg-white/80 rounded-2xl p-3 border border-pink-100 shadow-sm"><div class="w-full h-72 md:h-80 rounded-xl photo-frame"><img src="Asset (51).jpeg" alt="Moment 51" onerror="this.src='https://placehold.co/400x500/ffe3eb/ff3366?text=Foto+51'"></div><p class="text-center text-xs text-stone-500 font-semibold mt-2">Kenangan #51 🤍</p></div>
-                <div class="flex-shrink-0 w-64 md:w-72 bg-white/80 rounded-2xl p-3 border border-pink-100 shadow-sm"><div class="w-full h-72 md:h-80 rounded-xl photo-frame"><img src="Asset (52).jpeg" alt="Moment 52" onerror="this.src='https://placehold.co/400x500/ffe3eb/ff3366?text=Foto+52'"></div><p class="text-center text-xs text-stone-500 font-semibold mt-2">Kenangan #52 🤍</p></div>
-                <div class="flex-shrink-0 w-64 md:w-72 bg-white/80 rounded-2xl p-3 border border-pink-100 shadow-sm"><div class="w-full h-72 md:h-80 rounded-xl photo-frame"><img src="Asset (53).jpeg" alt="Moment 53" onerror="this.src='https://placehold.co/400x500/ffe3eb/ff3366?text=Foto+53'"></div><p class="text-center text-xs text-stone-500 font-semibold mt-2">Kenangan #53 🤍</p></div>
-                <div class="flex-shrink-0 w-64 md:w-72 bg-white/80 rounded-2xl p-3 border border-pink-100 shadow-sm"><div class="w-full h-72 md:h-80 rounded-xl photo-frame"><img src="Asset (54).jpeg" alt="Moment 54" onerror="this.src='https://placehold.co/400x500/ffe3eb/ff3366?text=Foto+54'"></div><p class="text-center text-xs text-stone-500 font-semibold mt-2">Kenangan #54 🤍</p></div>
-                <div class="flex-shrink-0 w-64 md:w-72 bg-white/80 rounded-2xl p-3 border border-pink-100 shadow-sm"><div class="w-full h-72 md:h-80 rounded-xl photo-frame"><img src="Asset (55).jpeg" alt="Moment 55" onerror="this.src='https://placehold.co/400x500/ffe3eb/ff3366?text=Foto+55'"></div><p class="text-center text-xs text-stone-500 font-semibold mt-2">Kenangan #55 🤍</p></div>
-                <div class="flex-shrink-0 w-64 md:w-72 bg-white/80 rounded-2xl p-3 border border-pink-100 shadow-sm"><div class="w-full h-72 md:h-8₀ rounded-xl photo-frame"><img src="Asset (56).jpeg" alt="Moment 56" onerror="this.src='https://placehold.co/4₀₀x₅₀₀/ffe₃eb/ff₃₃₆₆?text=Foto+₅₆'"></div><p class="text-center text-xs text-stone-5₀₀ font-semibold mt-₂">Kenangan #56 🤍</p></div>
+                <div class="flex-shrink-0 w-64 md:w-72 bg-white/80 rounded-2xl p-3 border border-pink-100 shadow-sm"><div class="w-full h-72 md:h-80 rounded-xl photo-frame"><img src="Asset (51).jpeg" alt="Moment 51" onerror="this.src='https://placehold.co/400x500/ffe3eb/ff3366?text=Foto+51'"></div><p class="text-center text-xs text-stone-500 font-semibold mt-2">foto cantik adik #51 🤍</p></div>
+                <div class="flex-shrink-0 w-64 md:w-72 bg-white/80 rounded-2xl p-3 border border-pink-100 shadow-sm"><div class="w-full h-72 md:h-80 rounded-xl photo-frame"><img src="Asset (52).jpeg" alt="Moment 52" onerror="this.src='https://placehold.co/400x500/ffe3eb/ff3366?text=Foto+52'"></div><p class="text-center text-xs text-stone-500 font-semibold mt-2">foto cantik adik #52 🤍</p></div>
+                <div class="flex-shrink-0 w-64 md:w-72 bg-white/80 rounded-2xl p-3 border border-pink-100 shadow-sm"><div class="w-full h-72 md:h-80 rounded-xl photo-frame"><img src="Asset (53).jpeg" alt="Moment 53" onerror="this.src='https://placehold.co/400x500/ffe3eb/ff3366?text=Foto+53'"></div><p class="text-center text-xs text-stone-500 font-semibold mt-2">foto cantik adik #53 🤍</p></div>
+                <div class="flex-shrink-0 w-64 md:w-72 bg-white/80 rounded-2xl p-3 border border-pink-100 shadow-sm"><div class="w-full h-72 md:h-80 rounded-xl photo-frame"><img src="Asset (54).jpeg" alt="Moment 54" onerror="this.src='https://placehold.co/400x500/ffe3eb/ff3366?text=Foto+54'"></div><p class="text-center text-xs text-stone-500 font-semibold mt-2">foto cantik adik #54 🤍</p></div>
+                <div class="flex-shrink-0 w-64 md:w-72 bg-white/80 rounded-2xl p-3 border border-pink-100 shadow-sm"><div class="w-full h-72 md:h-80 rounded-xl photo-frame"><img src="Asset (55).jpeg" alt="Moment 55" onerror="this.src='https://placehold.co/400x500/ffe3eb/ff3366?text=Foto+55'"></div><p class="text-center text-xs text-stone-500 font-semibold mt-2">foto cantik adik #55 🤍</p></div>
+                <div class="flex-shrink-0 w-64 md:w-72 bg-white/80 rounded-2xl p-3 border border-pink-100 shadow-sm"><div class="w-full h-72 md:h-80 rounded-xl photo-frame"><img src="Asset (56).jpeg" alt="Moment 56" onerror="this.src='https://placehold.co/400x500/ffe3eb/ff3366?text=Foto+56'"></div><p class="text-center text-xs text-stone-500 font-semibold mt-2">foto cantik adik #56 🤍</p></div>
             </div>
         </div>
 
@@ -398,17 +340,14 @@
             </div>
 
             <div class="mt-8 pt-6 border-t border-pink-100 text-center">
-               <footer class="w-full py-8 text-center relative z-10">
-
-    <!-- Tombol -->
-    <a href="https://drive.google.com/drive/folders/1pnwJf4yBk0dJqdpvMZFu6gAObJ_Y0cTG?usp=drive_link"
-       target="_blank"
-       class="inline-flex items-center gap-3 bg-gradient-to-r from-pink-500 to-rose-500 hover:from-pink-600 hover:to-rose-600 text-white font-bold px-8 py-4 rounded-full shadow-lg transition-all duration-300 hover:scale-105 hover:shadow-2xl">
-
-        <i class="fa-solid fa-heart"></i>
-        <span>cobaaa klik inii byy</span>
-        <i class="fa-solid fa-heart"></i>
-    </a>
+                <a href="https://drive.google.com/drive/folders/1pnwJf4yBk0dJqdpvMZFu6gAObJ_Y0cTG?usp=drive_link"
+                   target="_blank"
+                   class="inline-flex items-center gap-3 bg-gradient-to-r from-pink-500 to-rose-500 hover:from-pink-600 hover:to-rose-600 text-white font-bold px-8 py-4 rounded-full shadow-lg transition-all duration-300 hover:scale-105 hover:shadow-2xl">
+                    <i class="fa-solid fa-heart"></i>
+                    <span>cobaaa klik inii byy</span>
+                    <i class="fa-solid fa-heart"></i>
+                </a>
+            </div>
         </div>
 
     </main>
@@ -418,7 +357,6 @@
     </footer>
 
     <script>
-        // Generate falling hearts dynamically
         function createFallingHearts() {
             const container = document.getElementById('falling-hearts');
             const heartCount = 50;
@@ -442,7 +380,6 @@
             }
         }
 
-        // Swipe Gallery Scroll Controls
         function scrollGallery(direction) {
             const container = document.getElementById('photo-swipe-container');
             const scrollAmount = 300;
@@ -453,7 +390,6 @@
             }
         }
 
-        // Mouse drag scrolling support for desktop swipe simulation
         const slider = document.getElementById('photo-swipe-container');
         let isDown = false;
         let startX;
@@ -481,7 +417,6 @@
             slider.scrollLeft = scrollLeft - walk;
         });
 
-        // Music & popup control scripts
         const music = document.getElementById('bg-music');
         const musicBtn = document.getElementById('music-btn');
         const musicIcon = document.getElementById('music-icon');
