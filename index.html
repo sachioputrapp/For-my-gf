@@ -156,10 +156,7 @@
 
     <div class="falling-hearts-container" id="falling-hearts"></div>
 
-    <audio id="bg-music" loop>
-        <source src="247 - Romaria  Lirik." type="audio/mpeg">
-        <source src="beautiful.mp3.mp3" type="audio/mpeg">
-    </audio>
+    <audio id="bg-music"></audio>
 
     <!-- POP-UP MODAL -->
     <div id="popup-overlay" class="fixed inset-0 flex items-center justify-center p-4 transition-all duration-300">
@@ -334,6 +331,7 @@
     <p>Mungkin adik berfikir aku akan marah atau kesal Ketika adik banyak tidak aktif atau susah untuk bertemu, well mungkin di suatu kondisi tertentu aku bisa sedikit bete Ketika kita tidak bisa bertemu atau adik menghilang lama, ISOKEEIIII HONEEYYYYY hanyaa butuh sedikitt adaptasii sayaangg dannn akuuu bisaa menerima ituuu, bcs bukan tanpa alasann adik tida bisaa atau menghilangg, dannn akuu tidak mauu egoiss dengan mementingkan diri akuu sendirii, memangg aku tipe orang yang gampang rinduuu apalagi rindu sama adikkk RINDU BRUTAAAAALLLL, jadii karna aku tida mau egoiss akuu menyesuaikann dengan kondisi adikk, dengan memahami kondisi yang adik alamii, karena akuu tidak mau datang ke hidup adik dan membuat perubahan yang membuat adik jadi tertekan, aku mau datang ke hidup adik membawa kebahagiaan dan berkah yang bisa membuat hidup adik terasa sedikit lebih ringan.</p>
     <p>Akuu inginn berusaha untuk buktikan anggapan mami dan papi ada salahnya perihal pacaran sebelum lulus hanya buang buang waktu, walau memang ada saja hal yang mungkin agak mengganggu tapi aku harap hubungan kita di isi dengan banyaknya kebahagiaan. Walau aku tidak membuktikan secara langsung kepada papi dan mami tapi setidaknyaa nanti adik yang merasakann.</p>
     <p>Walaupuunn aku say ada bete sedikitt kalau adik menghilang ataupun tida bisa bertemu adik, adik jangan jadi memaksakan diri untuk bisaa yaaa akuu pahamm sayaangg akuu hanya mencurahkan apa yang aku rasakann tanpa maksud apapunn, akuu bisaa menyesuaikann sayaangg, aku yakinn nanti ada saatnya kita akan lebih leluasa lagiii.</p>
+    
     <p>Aku sayang kamu 3 kata yang simple tetapi sangat berarti dan bukan kata-kata yang sepele, thankss byyy sudah menerima akuu dan menjadi pasangan yang baikk untuk akuuu, siapa sangka disaat aku kebingungan dan tidak memiliki keinginan untuk dekat lagi dengan perempuan, muncul lah bidadari tuhan yang bernama angel ini. Tanggal 24 juni 2026 di hari rabu akan menjadi tanggal yang tidak akan pernah aku lupakan, maaf aku belum bisa memberi Kesan pertama yang melekat di kenangan adik, walaupun begitu aku akan terus berusaha menjadi pasangan yang baik untuk kamu sayang. Apapun yang terjadi nanti kita harus mengutamakan komunikasi karena itu hal yang paling penting di sebuah hubungan, sooo kalauu adik ada apa apa haruss say ke akuu yaaa begitupun akuu ke adikk pastii nantii aku bicarakan ke adik kalau ada sesuatuu yang menyangkut hubungan kita.</p>
     <p>Jujur aku masih ngga nyangka aku bisa dapetin kamu sayang, aku mau hubungan ini menjadi hal yang positif untuk kita berdua dan saling support kedepannya sayaanggg.</p>
 </div>
@@ -420,25 +418,20 @@
         const musicBtn = document.getElementById('music-btn');
         const musicIcon = document.getElementById('music-icon');
         const musicText = document.getElementById('music-text');
-        let isPlaying = false;
 
-        function toggleMusic() {
-            if (isPlaying) {
-                music.pause();
-                musicIcon.className = 'fa-solid fa-music text-pink-400';
-                musicText.innerText = 'Putar Musik Fav Adik';
-                musicBtn.classList.remove('bg-pink-100', 'border-pink-300');
-            } else {
-                music.play().then(() => {
-                    musicIcon.className = 'fa-solid fa-compact-disc text-pink-500 animate-spin-slow';
-                    musicText.innerText = 'Matikan Musik';
-                    musicBtn.classList.add('bg-pink-100', 'border-pink-300');
-                    isPlaying = true;
-                }).catch(error => {
-                    console.error("Gagal memutar musik:", error);
-                });
-            }
-            isPlaying = !isPlaying;
+        const playlist=["247 - Romaria  Lirik.mp3","beautiful.mp3"];
+        let currentSong=0;
+        let isPlaying=false;
+        function loadSong(i){music.src=playlist[i];music.load();}
+        loadSong(currentSong);
+        music.addEventListener("ended",()=>{
+            currentSong=(currentSong+1)%playlist.length;
+            loadSong(currentSong);
+            music.play();
+        });
+        function toggleMusic(){
+          if(isPlaying){music.pause();musicIcon.className='fa-solid fa-music text-pink-400';musicText.innerText='Putar Musik Fav Adik';musicBtn.classList.remove('bg-pink-100','border-pink-300');isPlaying=false;}
+          else{music.play().then(()=>{musicIcon.className='fa-solid fa-compact-disc text-pink-500 animate-spin-slow';musicText.innerText='Matikan Musik';musicBtn.classList.add('bg-pink-100','border-pink-300');isPlaying=true;});}
         }
 
         function handleYes() {
